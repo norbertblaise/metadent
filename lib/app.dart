@@ -112,6 +112,12 @@ class App extends StatelessWidget {
             color: Color(0xFFFF782E)
           ),
         ),
+        dividerTheme: DividerThemeData(
+          thickness: 1,
+          color: Theme.of(context).hintColor,
+          indent: 80,
+          endIndent: 16,
+        )
       ),
       onGenerateRoute: routes.controller,
       initialRoute: routes.homePage,

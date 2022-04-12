@@ -126,7 +126,7 @@ class _NewAppointmentState extends State<NewAppointment> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        flexibleSpace: const GradientAppBar(),
+        // flexibleSpace: const GradientAppBar(),
         title: const Text(
           "Book Appointment",
           style: TextStyle(color: Colors.white),

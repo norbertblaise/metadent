@@ -11,6 +11,7 @@ import 'package:metadent/src/ui/phoneVerification.dart';
 import 'package:metadent/src/ui/enterOTP.dart';
 import 'package:metadent/src/ui/Appointments/appointments.dart';
 import 'package:metadent/src/ui/Appointments/newAppointment.dart';
+import 'package:metadent/src/ui/Profile.dart';
 
 
 //route names
@@ -23,6 +24,7 @@ const String enterOTP = 'enterOtp';
 const String appointments = 'appointments';
 const String newAppointment = 'newAppointment';
 const String dashboard = 'dashboard';
+const String profile = "profile";
 
 
 Route<dynamic> controller(RouteSettings settings) {
@@ -45,6 +47,8 @@ Route<dynamic> controller(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => Dashboard());
     case newAppointment:
       return MaterialPageRoute(builder: (context) => NewAppointment());
+    case profile:
+      return MaterialPageRoute(builder: (context) => Profile());
     default:
       throw ('This route name does not exist');
   }
