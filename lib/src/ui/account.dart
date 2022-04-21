@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'CustomWidgets/SettingsListItem.dart';
 import 'CustomWidgets/gradientAppBar.dart';
@@ -19,7 +20,7 @@ class Account extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0).r,
         child: ListView(
           children: [
             SettingsListItem(
@@ -52,7 +53,9 @@ class Account extends StatelessWidget {
             SettingsListItem(
               label: 'Logout',
               icon: Icons.logout,
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamedAndRemoveUntil(context, routes.loginPage, (route)=> false);
+              },
             ),
           ],
         ),

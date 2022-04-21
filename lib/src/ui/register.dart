@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:metadent/src/ui/CustomWidgets/signinSignupHeader.dart';
 import 'package:metadent/src/ui/Methods/methods.dart';
+import 'package:metadent/src/ui/homePage.dart';
 import 'package:metadent/src/ui/login.dart';
 import 'package:metadent/routes.dart' as routes;
 
@@ -44,14 +46,14 @@ class _RegisterState extends State<Register> {
           children: [
             const SigninSignupHeader(),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              padding: const EdgeInsets.symmetric(horizontal: 24.0).r,
               child: Form(
                 key: formKey,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0).r,
                       child: Text(
                         'Create Account',
                         style: Theme.of(context).textTheme.labelLarge,
@@ -59,7 +61,7 @@ class _RegisterState extends State<Register> {
                     ),
                     TextFormField(
                       style: TextStyle(
-                        fontSize: 16.0,
+                        fontSize: 16.sp,
                         color: Theme.of(context).accentColor,
                       ),
                       controller: nameController,
@@ -76,12 +78,12 @@ class _RegisterState extends State<Register> {
                           'Name',
                           style: TextStyle(
                             color: Theme.of(context).accentColor,
-                            fontSize: 18.0,
+                            fontSize: 18.sp,
                           ),
                         ),
                         hintText: 'John Doe',
-                        hintStyle: const TextStyle(
-                          fontSize: 18.0,
+                        hintStyle: TextStyle(
+                          fontSize: 16.sp,
                         ),
                         filled: true,
                         focusedBorder: buildInputBorder(),
@@ -90,8 +92,8 @@ class _RegisterState extends State<Register> {
                         enabledBorder: buildInputBorder(),
                       ),
                     ),
-                    const SizedBox(
-                      height: 16,
+                     SizedBox(
+                      height: 16.h,
                     ),
                     TextFormField(
                       controller: emailController,
@@ -99,7 +101,7 @@ class _RegisterState extends State<Register> {
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       validator: (value) => validateEmail(value),
                       style: TextStyle(
-                        fontSize: 16.0,
+                        fontSize: 16.sp,
                         color: Theme.of(context).accentColor,
                       ),
                       decoration: InputDecoration(
@@ -107,12 +109,12 @@ class _RegisterState extends State<Register> {
                           'Email',
                           style: TextStyle(
                             color: Theme.of(context).accentColor,
-                            fontSize: 18.0,
+                            fontSize: 16.sp,
                           ),
                         ),
                         hintText: 'someone@example.com',
-                        hintStyle: const TextStyle(
-                          fontSize: 18.0,
+                        hintStyle:  TextStyle(
+                          fontSize: 16.sp,
                         ),
                         filled: true,
                         focusedBorder: buildInputBorder(),
@@ -121,8 +123,8 @@ class _RegisterState extends State<Register> {
                         enabledBorder: buildInputBorder(),
                       ),
                     ),
-                    const SizedBox(
-                      height: 16,
+                     SizedBox(
+                      height: 16.h,
                     ),
                     TextFormField(
                       controller: passwordController,
@@ -132,7 +134,7 @@ class _RegisterState extends State<Register> {
                       //   password = value;
                       // }),
                       style: TextStyle(
-                        fontSize: 16.0,
+                        fontSize: 16.sp,
                         color: Theme.of(context).accentColor,
                       ),
                       decoration: InputDecoration(
@@ -140,12 +142,12 @@ class _RegisterState extends State<Register> {
                           'Password',
                           style: TextStyle(
                             color: Theme.of(context).accentColor,
-                            fontSize: 18.0,
+                            fontSize: 16.sp,
                           ),
                         ),
                         hintText: 'Your password...',
-                        hintStyle: const TextStyle(
-                          fontSize: 18.0,
+                        hintStyle:  TextStyle(
+                          fontSize: 16.sp,
                         ),
                         suffixIcon: IconButton(
                           icon: isPasswordVisible
@@ -165,32 +167,41 @@ class _RegisterState extends State<Register> {
                         enabledBorder: buildInputBorder(),
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
+                     SizedBox(
+                      height: 10.h,
                     ),
                     ElevatedButton(
-                      child: const Text(
+                      child:  Text(
                         'Sign up',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 16.0,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
-                          minimumSize: const Size.fromHeight(42),
+                          minimumSize:  Size.fromHeight(42.r),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8))),
                       onPressed: () {
                         final isValid = formKey.currentState?.validate();
                         //todo request authentication
+                        // Navigator.of(context)
+                        //     .push(
+                        //   MaterialPageRoute(
+                        //     builder: (context) => HomePage(),
+                        //   ),
+                        // )
+                        //     .then((_) {
+                        //   setState(() {});
+                        // });
                       },
                     ),
-                    const SizedBox(
-                      height: 8,
+                     SizedBox(
+                      height: 8.h,
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 4.0).r,
                       child: Row(
                         children: [
                           Text(
@@ -198,20 +209,20 @@ class _RegisterState extends State<Register> {
                             style: TextStyle(
                               color: Theme.of(context).accentColor,
                               fontFamily: 'Source Sans Pro',
-                              fontSize: 16.0,
+                              fontSize: 16.sp,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           Padding(
                             padding:
-                                const EdgeInsets.symmetric(horizontal: 8.0),
+                                const EdgeInsets.symmetric(horizontal: 8.0).r,
                             child: InkWell(
                               child: Text(
                                 'Sign in',
                                 style: TextStyle(
                                   color: Theme.of(context).primaryColor,
                                   fontFamily: 'Source Sans Pro',
-                                  fontSize: 16.0,
+                                  fontSize: 16.sp,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -228,8 +239,8 @@ class _RegisterState extends State<Register> {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 16,
+             SizedBox(
+              height: 16.h,
             ),
           ],
         ),
@@ -239,7 +250,7 @@ class _RegisterState extends State<Register> {
   OutlineInputBorder buildInputBorder() {
     return OutlineInputBorder(
       borderSide: const BorderSide(color: Colors.transparent),
-      borderRadius: BorderRadius.circular(9.0),
+      borderRadius: BorderRadius.circular(9.0.r),
     );
   }
 }

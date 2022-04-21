@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NavbarItem extends StatelessWidget {
   final IconData icon;
@@ -16,8 +17,8 @@ class NavbarItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      height: 40,
-      width: 40,
+      height: ScreenUtil().setHeight(40),
+      width: ScreenUtil().setWidth(40),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6.0),
         color: pageIndex == iconIndex
@@ -32,7 +33,7 @@ class NavbarItem extends StatelessWidget {
           color: pageIndex == iconIndex
               ? Colors.white
               : Theme.of(context).accentColor,
-          size: 32,
+          size: 30.w,
         ),
       ),
     );

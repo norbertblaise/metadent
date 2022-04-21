@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:metadent/routes.dart' as routes;
 import 'package:metadent/src/ui/CustomWidgets/gradientAppBar.dart';
 import 'package:intl/intl.dart';
@@ -93,11 +94,11 @@ class _NewAppointmentState extends State<NewAppointment> {
 
   Widget timeChips() {
     return Wrap(
-      spacing: 8,
+      spacing: 8.w,
       children: List.generate(_timeChoices.length, (index) {
         return ChoiceChip(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(6.0),
+            borderRadius: BorderRadius.circular(6.r),
           ),
           label: Text(_timeChoices[index]),
           selected: defaultChoiceChip == index,
@@ -139,7 +140,7 @@ class _NewAppointmentState extends State<NewAppointment> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0).r,
         child: Stack(
           children:
           [ Column(
@@ -149,7 +150,7 @@ class _NewAppointmentState extends State<NewAppointment> {
                 padding: const EdgeInsets.symmetric(
                   vertical: 8.0,
                   horizontal: 16.0,
-                ),
+                ).r,
                 child: Text(
                   "Pick a date",
                   style: Theme
@@ -159,13 +160,13 @@ class _NewAppointmentState extends State<NewAppointment> {
                 ),
               ),
               Card(
-                elevation: 6,
+                elevation: 6.h,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0),
+                  borderRadius: BorderRadius.circular(8.0.r),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.only(
-                      left: 16.0, top: 16, bottom: 16, right: 8),
+                      left: 16.0, top: 16, bottom: 16, right: 8).r,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -175,7 +176,7 @@ class _NewAppointmentState extends State<NewAppointment> {
                           Text(
                             DateFormat.yMMMMd().format(selectedDate),
                             style: TextStyle(
-                              fontSize: 34,
+                              fontSize: 34.sp,
                               fontFamily: "Montserrat",
                               color: Theme
                                   .of(context)
@@ -188,7 +189,7 @@ class _NewAppointmentState extends State<NewAppointment> {
                                 color: Theme
                                     .of(context)
                                     .accentColor,
-                                size: 30,
+                                size: 30.w,
                               ),
                               onPressed: () {
                                 //todo open date picker
@@ -200,14 +201,14 @@ class _NewAppointmentState extends State<NewAppointment> {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 25,
+               SizedBox(
+                height: 25.h,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(
+                padding:  const EdgeInsets.symmetric(
                   vertical: 8.0,
                   horizontal: 16.0,
-                ),
+                ).r,
                 child: Text("Pick a treatment",
                     style: Theme
                         .of(context)
@@ -215,19 +216,19 @@ class _NewAppointmentState extends State<NewAppointment> {
                         .labelSmall),
               ),
               Card(
-                elevation: 6,
+                elevation: 6.h,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0),
+                  borderRadius: BorderRadius.circular(8.0.r),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
+                  padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16).r,
                   child: DropdownButton(
                     isExpanded: true,
                     value: dropdownValue,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontFamily: 'Source Sans Pro',
-                      fontSize: 22,
+                      fontSize: 22.sp,
                       color: Theme
                           .of(context)
                           .accentColor,
@@ -247,14 +248,14 @@ class _NewAppointmentState extends State<NewAppointment> {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 25,
+               SizedBox(
+                height: 25.h,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(
                   vertical: 8.0,
                   horizontal: 16.0,
-                ),
+                ).r,
                 child: Text("Pick a time",
                     style: Theme
                         .of(context)
@@ -262,15 +263,15 @@ class _NewAppointmentState extends State<NewAppointment> {
                         .labelSmall),
               ),
               Card(
-                elevation: 6,
+                elevation: 6.h,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0),
+                  borderRadius: BorderRadius.circular(8.0.r),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
                     vertical: 16.0,
                     horizontal: 16.0,
-                  ),
+                  ).r,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -288,8 +289,8 @@ class _NewAppointmentState extends State<NewAppointment> {
                             .of(context)
                             .primaryColor
                             .withOpacity(0.12),
-                        borderRadius: BorderRadius.circular(4.0),
-                        constraints: BoxConstraints(minHeight: 36),
+                        borderRadius: BorderRadius.circular(4.0.r),
+                        constraints: BoxConstraints(minHeight: 36.h),
                         isSelected: isSelected,
                         onPressed: (int index) {
                           setState(() {
@@ -298,17 +299,17 @@ class _NewAppointmentState extends State<NewAppointment> {
                             }
                           });
                         },
-                        children: const [
+                        children:  [
                           Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 16.0),
+                            padding: EdgeInsets.symmetric(horizontal: 16.0).r,
                             child: Text('Morning'),
                           ),
                           Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 16.0),
+                            padding: EdgeInsets.symmetric(horizontal: 16.0).r,
                             child: Text('Mid'),
                           ),
                           Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 16.0),
+                            padding: EdgeInsets.symmetric(horizontal: 16.0).r,
                             child: Text('Afternoon'),
                           ),
                         ],

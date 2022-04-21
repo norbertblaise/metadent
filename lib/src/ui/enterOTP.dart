@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
 import 'package:metadent/routes.dart' as routes;
 
@@ -27,12 +28,12 @@ class _EnterOtpState extends State<EnterOtp> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal:24.0),
+        padding: const EdgeInsets.symmetric(horizontal:24.0).r,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(
-              height: 200,
+             SizedBox(
+              height: 200.h,
             ),
             Row(
               children: [
@@ -40,12 +41,12 @@ class _EnterOtpState extends State<EnterOtp> {
                   'Code Sent to 0700 122 321.',
                   style: TextStyle(
                     color: Theme.of(context).accentColor,
-                    fontSize: 16,
+                    fontSize: 16.sp,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(
-                  width: 4,
+                 SizedBox(
+                  width: 4.w,
                 ),
                 InkWell(
                   child: Text(

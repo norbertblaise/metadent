@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PasswordReset extends StatefulWidget {
   const PasswordReset({Key? key}) : super(key: key);
@@ -39,43 +40,57 @@ class _PasswordResetState extends State<PasswordReset> {
         ),
       ),
       body: Center(
-          child: Column(children: [
-        Text(
-          'Enter your email',
-          style: Theme.of(context).textTheme.labelSmall,
+          child: Padding(
+            padding: const EdgeInsets.all(16.0).r,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 8.h,
+                  ),
+        Padding(
+          padding: const EdgeInsets.only(left:8.0).r,
+          child: Text(
+              'Enter your email',
+              style: Theme.of(context).textTheme.labelMedium,
+          ),
         ),
+                  SizedBox(
+                    height: 8.h,
+                  ),
         TextFormField(
-          controller: emailController,
-          keyboardType: TextInputType.emailAddress,
-          autovalidateMode: AutovalidateMode.onUserInteraction,
-          validator: (value) => validateEmail(value),
-          style: TextStyle(
-            fontSize: 16.0,
-            color: Theme.of(context).accentColor,
-          ),
-          decoration: InputDecoration(
-            label: Text(
-              'Email',
-              style: TextStyle(
-                color: Theme.of(context).accentColor,
-                fontSize: 18.0,
+            controller: emailController,
+            keyboardType: TextInputType.emailAddress,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            validator: (value) => validateEmail(value),
+            style: TextStyle(
+              fontSize: 16.sp,
+              color: Theme.of(context).accentColor,
+            ),
+            decoration: InputDecoration(
+              label: Text(
+                'Email',
+                style: TextStyle(
+                  color: Theme.of(context).accentColor,
+                  fontSize: 16.sp,
+                ),
               ),
+              hintText: 'someone@example.com',
+              hintStyle:  TextStyle(
+                fontSize: 18.sp,
+              ),
+              filled: true,
+              focusedBorder: buildInputBorder(),
+              errorBorder: buildInputBorder(),
+              border: buildInputBorder(),
+              enabledBorder: buildInputBorder(),
             ),
-            hintText: 'someone@example.com',
-            hintStyle: const TextStyle(
-              fontSize: 18.0,
-            ),
-            filled: true,
-            focusedBorder: buildInputBorder(),
-            errorBorder: buildInputBorder(),
-            border: buildInputBorder(),
-            enabledBorder: buildInputBorder(),
-          ),
         ),
         const SizedBox(
-          height: 8,
+            height: 8,
         ),
-      ])),
+      ]),
+          )),
     );
   }
 

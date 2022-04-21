@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ServiceCard extends StatelessWidget {
   final String imagePath;
@@ -17,12 +18,12 @@ class ServiceCard extends StatelessWidget {
     return Material(
       color: Theme.of(context).backgroundColor,
       child: InkWell(
-        borderRadius: BorderRadius.circular(10.0),
+        borderRadius: BorderRadius.circular(ScreenUtil().radius(10)),
         onTap: //go to relevant page
           destination ,
         child: Container(
-          height: 200,
-          width: 180,
+          height: ScreenUtil().setHeight(155),
+          width: ScreenUtil().setWidth(155),
           child: Card(
             elevation: 9.0,
             shape: RoundedRectangleBorder(
@@ -30,21 +31,21 @@ class ServiceCard extends StatelessWidget {
             ),
             child: Padding(
               padding: const EdgeInsets.only(
-                  left: 22.0, right: 22.0, top: 16, bottom: 16.0),
+                  left: 22.0, right: 22.0, top: 16, bottom: 16.0).r,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   SizedBox(
-                    height: 90,
-                    width:  110,
+                    height: ScreenUtil().setHeight(75),
+                    width:  ScreenUtil().setWidth(105),
                     child: Image(
                       image: AssetImage(imagePath),
                       fit: BoxFit.contain,
                     ),
                   ),
-                  const SizedBox(
-                    height: 14.0,
-                  ),
+                  //  SizedBox(
+                  //   height: ScreenUtil().setHeight(8),
+                  // ),
                   Text(
                     cardLabel,
                     textAlign: TextAlign.center,

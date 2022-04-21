@@ -1,7 +1,9 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:metadent/src/ui/CustomWidgets/signinSignupHeader.dart';
+import 'package:metadent/src/ui/homePage.dart';
 import 'package:metadent/src/ui/register.dart';
 import 'package:metadent/routes.dart' as routes;
 
@@ -42,19 +44,19 @@ class _LoginState extends State<Login> {
           children: [
             const SigninSignupHeader(),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              padding: const EdgeInsets.symmetric(horizontal: 24.0).r,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0).r,
                     child: Text(
                       'Sign in',
                       style: Theme.of(context).textTheme.labelLarge,
                     ),
                   ),
-                  const SizedBox(
-                    height: 16,
+                   SizedBox(
+                    height: 16.h,
                   ),
                   TextFormField(
                     controller: emailController,
@@ -70,12 +72,12 @@ class _LoginState extends State<Login> {
                         'Email',
                         style: TextStyle(
                           color: Theme.of(context).accentColor,
-                          fontSize: 18.0,
+                          fontSize: 16.0.sp,
                         ),
                       ),
                       hintText: 'someone@example.com',
-                      hintStyle: const TextStyle(
-                        fontSize: 18.0,
+                      hintStyle:  TextStyle(
+                        fontSize: 16.sp,
                       ),
                       filled: true,
                       focusedBorder: buildInputBorder(),
@@ -84,8 +86,8 @@ class _LoginState extends State<Login> {
                       enabledBorder: buildInputBorder(),
                     ),
                   ),
-                  const SizedBox(
-                    height: 16,
+                   SizedBox(
+                    height: 16.h,
                   ),
                   TextFormField(
                     controller: passwordController,
@@ -95,7 +97,7 @@ class _LoginState extends State<Login> {
                     //   password = value;
                     // }),
                     style: TextStyle(
-                      fontSize: 16.0,
+                      fontSize: 16.sp,
                       color: Theme.of(context).accentColor,
                     ),
                     decoration: InputDecoration(
@@ -103,12 +105,12 @@ class _LoginState extends State<Login> {
                         'Password',
                         style: TextStyle(
                           color: Theme.of(context).accentColor,
-                          fontSize: 18.0,
+                          fontSize: 16.sp,
                         ),
                       ),
                       hintText: 'Your password...',
-                      hintStyle: const TextStyle(
-                        fontSize: 18.0,
+                      hintStyle:  TextStyle(
+                        fontSize: 18.0.sp,
                       ),
                       suffixIcon: IconButton(
                         icon: isPasswordVisible
@@ -128,11 +130,11 @@ class _LoginState extends State<Login> {
                       enabledBorder: buildInputBorder(),
                     ),
                   ),
-                  const SizedBox(
-                    height: 16,
+                   SizedBox(
+                    height: 16.h,
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0).r,
                     child: InkWell(
                       child: Text(
                         'Forgot Password?',
@@ -149,31 +151,51 @@ class _LoginState extends State<Login> {
                       },
                     ),
                   ),
-                  const SizedBox(
-                    height: 8,
+                   SizedBox(
+                    height: 8.h,
                   ),
                   ElevatedButton(
-                    child: const Text(
+                    child:  Text(
                       'Sign in',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 16.0,
+                        fontSize: 14.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     style: ElevatedButton.styleFrom(
-                        minimumSize: const Size.fromHeight(42),
+                        minimumSize:  Size.fromHeight(38.h),
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8))),
+                            borderRadius: BorderRadius.circular(8.r))),
                     onPressed: () {
                       //todo request authentication and verify phone
+                      // Navigator.of(context).push(MaterialPageRoute(
+                      //   builder:
+                      //   (context) =>HomePage(),
+                      //
+                      // ),
+                      // ).then((_){
+                      //   setState(() {
+                      //
+                      //   });
+                      // });
+                      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+                        builder:
+                            (context) =>HomePage(),
+                      ),
+                          (route) => false,
+                      ).then((_){
+                        setState(() {
+
+                        });
+                      });
                     },
                   ),
-                  const SizedBox(
-                    height: 8,
+                   SizedBox(
+                    height: 8.h,
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 4.0).r,
                     child: Row(
                       children: [
                         Text(
@@ -181,7 +203,7 @@ class _LoginState extends State<Login> {
                           style: TextStyle(
                             color: Theme.of(context).accentColor,
                             fontFamily: 'Source Sans Pro',
-                            fontSize: 16.0,
+                            fontSize: 15.sp,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -193,18 +215,13 @@ class _LoginState extends State<Login> {
                               style: TextStyle(
                                 color: Theme.of(context).primaryColor,
                                 fontFamily: 'Source Sans Pro',
-                                fontSize: 16.0,
+                                fontSize: 16.sp,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                             onTap: () {
                               //todo go to register page
-                              Navigator.push(context,
-                              MaterialPageRoute(
-                                builder: (BuildContext context){
-                                  return const Register();
-                                }
-                              ));
+                              Navigator.pushNamed(context, routes.registerPage);
                             },
                           ),
                         ),
@@ -214,8 +231,8 @@ class _LoginState extends State<Login> {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 16,
+             SizedBox(
+              height: 16.h,
             ),
           ],
         ),
@@ -226,7 +243,7 @@ class _LoginState extends State<Login> {
   OutlineInputBorder buildInputBorder() {
     return OutlineInputBorder(
       borderSide: const BorderSide(color: Colors.transparent),
-      borderRadius: BorderRadius.circular(9.0),
+      borderRadius: BorderRadius.circular(9.r),
     );
   }
 }

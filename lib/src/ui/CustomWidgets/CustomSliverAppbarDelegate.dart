@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'gradientAppBar.dart';
 class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
@@ -36,23 +37,23 @@ class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
           alignment: Alignment.center,
 
           children: [
-            const CircleAvatar(
+             CircleAvatar(
               backgroundColor: Colors.white,
-              radius: 54,
+              radius: 52.r,
               child: CircleAvatar(
-                radius: 47,
+                radius: 45.r,
                 //todo change to profile pic otherwise use placeholder
                 backgroundImage:
                 AssetImage('assets/images/default-profile-pic.png'),
               ),
             ),
             Positioned(
-              top: 108,
-              left: 220,
+              top: 108.r,
+              left: 210.r,
 
               child: Container(
-                width: 33,
-                height: 33,
+                width: 32.w,
+                height: 32.w,
                 child: Padding(
                   padding: EdgeInsets.all(0),
                   child: IconButton(
@@ -62,14 +63,14 @@ class CustomSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
                     icon: Icon(
                       Icons.camera_alt_rounded,
                       color: Theme.of(context).primaryColor,
-                      size: 18,
+                      size: 18.r,
                     ),
                   ),
                 ),
-                decoration: const BoxDecoration(
+                decoration:  BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.all(
-                      Radius.circular(50),
+                      Radius.circular(50.r),
                     )
                 ),
               ),

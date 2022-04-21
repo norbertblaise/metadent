@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProfileFieldCard extends StatelessWidget {
   IconData? icon;
@@ -16,19 +17,19 @@ class ProfileFieldCard extends StatelessWidget {
     return Card(
       elevation: 6,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
+        borderRadius: BorderRadius.circular(10.r),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric( vertical: 12),
+        padding: const EdgeInsets.symmetric( vertical: 12).r,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 16.0),
+              padding: const EdgeInsets.only(left: 16.0).r,
               child: Row(children: [
-                Icon(icon, size: 30, color: Theme.of(context).hintColor),
-                const SizedBox(
-                  width: 30,
+                Icon(icon, size: 30.r, color: Theme.of(context).hintColor),
+                 SizedBox(
+                  width: 30.w,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,13 +42,13 @@ class ProfileFieldCard extends StatelessWidget {
                         fontWeight: FontWeight.w300,
                       ),
                     ),
-                    const SizedBox(
-                      height: 6,
+                     SizedBox(
+                      height: 6.h,
                     ),
                     Text(
                       value,
                       style: TextStyle(
-                          fontSize: 16, color: Theme.of(context).accentColor),
+                          fontSize: 14.sp, color: Theme.of(context).accentColor),
                     ),
                   ],),
               ],),

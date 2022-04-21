@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppointmentListItem extends StatelessWidget {
   final String appointmentName;
@@ -18,39 +19,39 @@ class AppointmentListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 20.0),
+        padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 20.0).r,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
               children: [
-                const CircleAvatar(
-                  radius: 25,
+                 CircleAvatar(
+                  radius: ScreenUtil().radius(25),
                   //todo change to profile pic otherwise use placeholder
                   backgroundImage:
-                  AssetImage('assets/images/default-profile-pic.png'),
+                  const AssetImage('assets/images/default-profile-pic.png'),
                 ),
-                const SizedBox(width: 8.0),
+                 SizedBox(width: ScreenUtil().setWidth(8)),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(appointmentName,
                         style: Theme.of(context).textTheme.titleSmall),
-                    const SizedBox(height: 4.0),
+                     SizedBox(height: 4.h),
                     Text(
                       doctorName,
                       style: TextStyle(
                         color: Theme.of(context).hintColor,
-                        fontSize: 16,
+                        fontSize: 16.sp,
                         fontFamily: 'Source Sans Pro',
                       ),
                     ),
-                    const SizedBox(height: 4.0),
+                     SizedBox(height: 4.h),
                     Text('$date, $time',
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,
                         fontWeight: FontWeight.bold,
-                        fontSize: 16.0,
+                        fontSize: 12.sp,
                         fontFamily: 'Source Sans Pro',
                       ),),
                   ],
@@ -58,9 +59,9 @@ class AppointmentListItem extends StatelessWidget {
               ],
             ),
             IconButton(
-                icon: const Icon(
+                icon:  Icon(
                   Icons.chevron_right,
-                  size: 30,
+                  size: 30.r,
                 ),
                 onPressed: () {})
           ],

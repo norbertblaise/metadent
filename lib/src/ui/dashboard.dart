@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:metadent/src/ui/CustomWidgets/serviceCard.dart';
 import 'package:metadent/routes.dart' as routes;
 
@@ -26,8 +27,8 @@ class Dashboard extends StatelessWidget {
                       backgroundImage:
                       AssetImage('assets/images/default-profile-pic.png'),
                     ),
-                    const SizedBox(
-                      width: 10,
+                     SizedBox(
+                      width: ScreenUtil().setWidth(10),
                     ),
                     Text(
                       //todo add username from server
@@ -50,7 +51,7 @@ class Dashboard extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 30.0),
+             SizedBox(height: ScreenUtil().setHeight(20)),
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -73,11 +74,11 @@ class Dashboard extends StatelessWidget {
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
                           ),
-                          borderRadius: BorderRadius.circular(20.0),
+                          borderRadius: BorderRadius.circular(ScreenUtil().radius(20)),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
-                              vertical: 18.0, horizontal: 35),
+                              vertical: 18.0, horizontal: 35).r,
                           child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -86,8 +87,8 @@ class Dashboard extends StatelessWidget {
                                   style:
                                   Theme.of(context).textTheme.displaySmall,
                                 ),
-                                const SizedBox(
-                                  height: 10.0,
+                                 SizedBox(
+                                  height: ScreenUtil().setHeight(10),
                                 ),
                                 Text(
                                   "14 April 2022",
@@ -102,10 +103,10 @@ class Dashboard extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 30),
+             SizedBox(height: ScreenUtil().setHeight(20)),
             Text("Services", style: Theme.of(context).textTheme.labelMedium),
-            const SizedBox(
-              height: 8.0,
+             SizedBox(
+              height: ScreenUtil().setHeight(8),
             ),
             Expanded(
               child: Column(
@@ -114,11 +115,11 @@ class Dashboard extends StatelessWidget {
                     children: [
                       ServiceCard(
                           imagePath: 'assets/images/manage-appointments.png',
-                          cardLabel: "Manage\n Appointments",
+                          cardLabel: "Manage\nAppointments",
                           destination: () {
                             Navigator.pushNamed(context, routes.appointments);
                           }),
-                      const SizedBox(width: 8.0),
+                       SizedBox(width: ScreenUtil().setWidth(8)),
                       ServiceCard(
                           imagePath: 'assets/images/statements-invoices.png',
                           cardLabel: "Statements &\nInvoices",
@@ -137,7 +138,7 @@ class Dashboard extends StatelessWidget {
                           destination: () {
                             //todo go to appointments page.
                           }),
-                      const SizedBox(width: 8.0),
+                       SizedBox(width: ScreenUtil().setWidth(8)),
                       ServiceCard(
                           imagePath: 'assets/images/treatment-plans.png',
                           cardLabel: "Treatment Plans",

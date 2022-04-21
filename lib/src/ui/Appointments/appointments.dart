@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:metadent/src/ui/CustomWidgets/AppointmentListItem.dart';
 import 'package:metadent/src/ui/CustomWidgets/gradientAppBar.dart';
 import 'package:metadent/routes.dart' as routes;
@@ -49,11 +50,11 @@ class _AppointmentsState extends State<Appointments>
             Navigator.pop(context);
           },
         ),
-        actions: const [
+        actions:  [
           Padding(
             padding: EdgeInsets.symmetric(
               horizontal: 16,
-            ),
+            ).r,
             child: Icon(Icons.search, color: Colors.white),
           ),
         ],
@@ -65,7 +66,7 @@ class _AppointmentsState extends State<Appointments>
           tabs: [
             for (final tab in tabs)
               SizedBox(
-                width: 180,
+                width: 0.4.sw,
                 child: Tab(text: tab),
               ),
           ],
@@ -96,15 +97,15 @@ class _AppointmentsState extends State<Appointments>
             backgroundColor: Theme.of(context).primaryColor,
             foregroundColor: Colors.white,
             icon: const Icon(Icons.add),
-            label: const Text(
+            label:  Text(
               'NEW',
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 12.sp,
                 fontWeight: FontWeight.bold,
               ),
             ),
             shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
             onPressed: () {
               Navigator.pushNamed(context, routes.newAppointment);
             },
