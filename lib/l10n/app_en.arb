@@ -1,0 +1,93 @@
+{
+  "helloWorld": "Hello World!",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "signIn": "Sign in",
+  "@Sign in": {
+    "description": "Sign in"
+  },
+  "name": "Name",
+  "email": "Email",
+  "@Email": {
+    "description": "Email"
+  },
+  "password": "Password",
+  "@Password": {
+    "description": "Sign in"
+  },
+  "forgotPassword": "Forgot Password",
+  "@ForgotPassword": {
+    "description": "Reset your account password"
+  },
+  "noAccount": "Don't Have an account?",
+  "alreadyHasAccount": "Already have an account?",
+
+  "signUp": "Sign up",
+  "emailHint": "someone@example.com",
+  "invalidEmailError": "Enter a valid email address",
+  "passwordHint": "Your password...",
+  "noNameError": "Please provide a name",
+  "nameHint": "Jon Doe",
+  "enterEmailLabel": "Enter your email",
+  "resetPassWordButtonText" : "Reset Password",
+  "createAccount" : "Create Account",
+
+  "verifyPhone": "Verify Phone",
+  "enterPhoneLabel": "Please Enter your phone number",
+  "getCode": "Get Code",
+  "phoneHint": "0700 122 321",
+
+  "resetPassword": "Reset Password",
+  "codeSent": "Code sent to ",
+  "wrongNumber": "Wrong Number",
+  "enterCode": "Enter Code",
+  "verify": "Verify",
+  "messageNotReceived": "Didn't receive message?",
+  "resend": "Resend",
+
+  "greeting": "Hi there",
+  "upcomingAppointment": "Upcoming Appointment",
+  "services": "Services",
+  "manageAppointments": "Manage\nAppointments",
+  "statementsAndInvoices": "Statements &\nInvoices",
+  "viewRecords": "View Records",
+  "treatmentPlans": "Treatment Plans",
+
+  "appointments": "Appointments",
+  "upcoming": "Upcoming",
+  "previous": "Previous",
+  "ongoingControl": "Ongoing Control",
+  "newFABLabel": "NEW",
+
+  "selectAppointmentDate": "Select Appointment Date",
+  "cancel": "Cancel",
+  "bookAppointment": "Book Appointment",
+  "pickDate": "Pick a date",
+  "pickTreatment": "Pick a treatment",
+  "pickTime": "Pick a time",
+  "consultation" : "Consultation",
+  "morning": "Morning",
+  "mid": "Mid",
+  "afternoon": "Afternoon",
+  "confirm": "Confirm",
+
+  "accountOptions": "Account Options",
+  "personalInformation": "Personal Information",
+  "paymentMethods": "Payment Methods",
+  "settings": "Settings",
+  "language": "Language",
+  "support": "Support",
+  "logout": "Logout",
+
+  "profile": "profile",
+  "phone": "Phone",
+  "address": "Address",
+  "insurance": "Insurance",
+  "policyDetails": "Policy Details",
+  "holderName": "Holder's Name",
+  "policyNumber": "Policy Number",
+  "provider": "Provider",
+  "coveragePlan": "Coverage Plan",
+  "expiry": "Expiry"
+}

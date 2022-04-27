@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pinput/pinput.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:metadent/routes.dart' as routes;
 
 class EnterOtp extends StatefulWidget {
@@ -14,10 +15,11 @@ class _EnterOtpState extends State<EnterOtp> {
 
   @override
   Widget build(BuildContext context) {
+    var localizedString = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Reset Password',
+        title:  Text(
+          localizedString!.verifyPhone,
           style: TextStyle(color: Colors.white),
         ),
         leading: IconButton(
@@ -38,7 +40,7 @@ class _EnterOtpState extends State<EnterOtp> {
             Row(
               children: [
                 Text(
-                  'Code Sent to 0700 122 321.',
+                  '${localizedString.codeSent} 0700 122 321.',
                   style: TextStyle(
                     color: Theme.of(context).accentColor,
                     fontSize: 16.sp,
@@ -50,7 +52,7 @@ class _EnterOtpState extends State<EnterOtp> {
                 ),
                 InkWell(
                   child: Text(
-                    'Wrong number?',
+                    localizedString.wrongNumber,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Theme.of(context).primaryColor,
@@ -67,7 +69,7 @@ class _EnterOtpState extends State<EnterOtp> {
               height: 16,
             ),
             Text(
-              'Enter code',
+              localizedString.enterCode,
               style: TextStyle(
                 color: Theme.of(context).accentColor,
                 fontWeight: FontWeight.bold,
@@ -82,8 +84,8 @@ class _EnterOtpState extends State<EnterOtp> {
               height: 16 ,
             ),
             ElevatedButton(
-              child: const Text(
-                'Verify',
+              child:  Text(
+                localizedString.verify,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16.0,
@@ -104,7 +106,7 @@ class _EnterOtpState extends State<EnterOtp> {
             Row(
               children: [
                 Text(
-                  'Didn\'t receive message?',
+                  localizedString.messageNotReceived,
                   style: TextStyle(
                     color: Theme.of(context).accentColor,
                     fontSize: 16,
@@ -116,7 +118,7 @@ class _EnterOtpState extends State<EnterOtp> {
                 ),
                 InkWell(
                   child: Text(
-                    'Resend',
+                    localizedString.resend,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Theme.of(context).primaryColor,

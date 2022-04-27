@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'src/ui/homePage.dart';
 import 'package:metadent/src/ui/account.dart';
 import 'package:metadent/src/ui/communications.dart';
@@ -8,6 +9,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'src/ui/theme/pallete.dart';
 import 'package:metadent/src/ui/login.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:metadent/routes.dart' as routes;
 
 class App extends StatelessWidget {
@@ -40,7 +42,12 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
 
     int pageIndex = 0;
-
+    // SystemChrome.setSystemUIOverlayStyle(
+    //     SystemUiOverlayStyle(
+    //
+    //         statusBarColor: Color(0xFFFF782E)
+    //     )
+    // );
     final pages = [
       const Communications(),
       const Invoices(),
@@ -132,16 +139,10 @@ class App extends StatelessWidget {
         builder: (_){
           return MaterialApp(
             title: 'MetaDent',
+            navigatorKey: NavigationService.navigatorKey,
             debugShowCheckedModeBanner: false,
-            localizationsDelegates: [
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: [
-              Locale('en', ''), // English, no country code
-              Locale('nl', ''), // Spanish, no country code
-            ],
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
             theme: ThemeData(
                 primarySwatch: createMaterialColor(Color(0xFFFF782E)),
                 colorScheme: const ColorScheme(
@@ -158,7 +159,9 @@ class App extends StatelessWidget {
                   onError: Colors.white,
 
                 ),
-
+                appBarTheme: AppBarTheme(
+                  brightness: Brightness.dark
+                ),
                 primaryColor: const Color(0xFFFF782E),
                 accentColor: Color(0xFF0A2139),
                 backgroundColor: const Color(0xFFFFF4EF),
@@ -219,4 +222,9 @@ class App extends StatelessWidget {
         });
 
   }
+}
+
+class NavigationService {
+  static GlobalKey<NavigatorState> navigatorKey =
+  GlobalKey<NavigatorState>();
 }

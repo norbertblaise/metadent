@@ -5,6 +5,7 @@ import 'package:metadent/src/ui/CustomWidgets/signinSignupHeader.dart';
 import 'package:metadent/src/ui/Methods/methods.dart';
 import 'package:metadent/src/ui/homePage.dart';
 import 'package:metadent/src/ui/login.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:metadent/routes.dart' as routes;
 
 class Register extends StatefulWidget {
@@ -38,6 +39,7 @@ class _RegisterState extends State<Register> {
 
   @override
   Widget build(BuildContext context) {
+    var localizedString = AppLocalizations.of(context);
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(0),
@@ -68,20 +70,20 @@ class _RegisterState extends State<Register> {
                       keyboardType: TextInputType.text,
                       validator: (value) {
                         if (value?.length == 0) {
-                          return 'Please provide a name';
+                          return localizedString!.noNameError;
                         } else {
                           return null;
                         }
                       },
                       decoration: InputDecoration(
                         label: Text(
-                          'Name',
+                          localizedString!.name,
                           style: TextStyle(
                             color: Theme.of(context).accentColor,
                             fontSize: 18.sp,
                           ),
                         ),
-                        hintText: 'John Doe',
+                        hintText: localizedString.nameHint,
                         hintStyle: TextStyle(
                           fontSize: 16.sp,
                         ),
@@ -106,13 +108,13 @@ class _RegisterState extends State<Register> {
                       ),
                       decoration: InputDecoration(
                         label: Text(
-                          'Email',
+                          localizedString.email,
                           style: TextStyle(
                             color: Theme.of(context).accentColor,
                             fontSize: 16.sp,
                           ),
                         ),
-                        hintText: 'someone@example.com',
+                        hintText: localizedString.emailHint,
                         hintStyle:  TextStyle(
                           fontSize: 16.sp,
                         ),
@@ -139,13 +141,13 @@ class _RegisterState extends State<Register> {
                       ),
                       decoration: InputDecoration(
                         label: Text(
-                          'Password',
+                          localizedString.password,
                           style: TextStyle(
                             color: Theme.of(context).accentColor,
                             fontSize: 16.sp,
                           ),
                         ),
-                        hintText: 'Your password...',
+                        hintText: localizedString.passwordHint,
                         hintStyle:  TextStyle(
                           fontSize: 16.sp,
                         ),
@@ -172,7 +174,7 @@ class _RegisterState extends State<Register> {
                     ),
                     ElevatedButton(
                       child:  Text(
-                        'Sign up',
+                        localizedString.signUp,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 16.sp,
@@ -205,7 +207,7 @@ class _RegisterState extends State<Register> {
                       child: Row(
                         children: [
                           Text(
-                            'Already have an account?',
+                            localizedString.alreadyHasAccount,
                             style: TextStyle(
                               color: Theme.of(context).accentColor,
                               fontFamily: 'Source Sans Pro',
@@ -218,7 +220,7 @@ class _RegisterState extends State<Register> {
                                 const EdgeInsets.symmetric(horizontal: 8.0).r,
                             child: InkWell(
                               child: Text(
-                                'Sign in',
+                                localizedString.signIn,
                                 style: TextStyle(
                                   color: Theme.of(context).primaryColor,
                                   fontFamily: 'Source Sans Pro',

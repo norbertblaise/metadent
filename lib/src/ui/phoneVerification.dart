@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:metadent/routes.dart' as routes;
+
+import '../../app.dart';
 
 class PhoneVerification extends StatefulWidget {
   const PhoneVerification({Key? key}) : super(key: key);
@@ -10,7 +13,7 @@ class PhoneVerification extends StatefulWidget {
 
 class _PhoneVerificationState extends State<PhoneVerification> {
   final phoneController = TextEditingController();
-
+  var localizedString = AppLocalizations.of(NavigationService.navigatorKey.currentContext!);
   String validateEmail(String? value) {
     String pattern =
         r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]"
@@ -18,7 +21,7 @@ class _PhoneVerificationState extends State<PhoneVerification> {
         r"{0,253}[a-zA-Z0-9])?)*$";
     RegExp regex = RegExp(pattern);
     if (value == null || value.isEmpty || !regex.hasMatch(value)) {
-      return 'Enter a valid email address';
+      return localizedString!.invalidEmailError;
     } else {
       return 'null';
     }
@@ -26,10 +29,11 @@ class _PhoneVerificationState extends State<PhoneVerification> {
 
   @override
   Widget build(BuildContext context) {
+    var localizedString = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Verify Phone',
+        title:  Text(
+          localizedString!.verifyPhone,
           style: TextStyle(color: Colors.white),
         ),
         leading: IconButton(
@@ -40,7 +44,7 @@ class _PhoneVerificationState extends State<PhoneVerification> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal:24.0),
+        padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -50,7 +54,7 @@ class _PhoneVerificationState extends State<PhoneVerification> {
             Padding(
               padding: const EdgeInsets.only(left: 4.0),
               child: Text(
-                'Please Enter your phone number',
+                localizedString.enterPhoneLabel,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 22,
@@ -72,13 +76,13 @@ class _PhoneVerificationState extends State<PhoneVerification> {
               ),
               decoration: InputDecoration(
                 label: Text(
-                  'Phone',
+                  localizedString.phone,
                   style: TextStyle(
                     color: Theme.of(context).accentColor,
                     fontSize: 18.0,
                   ),
                 ),
-                hintText: '0700 122 321',
+                hintText: localizedString.phoneHint,
                 hintStyle: const TextStyle(
                   fontSize: 18.0,
                 ),
@@ -93,8 +97,8 @@ class _PhoneVerificationState extends State<PhoneVerification> {
               height: 16,
             ),
             ElevatedButton(
-              child: const Text(
-                'Get Code',
+              child:  Text(
+                localizedString.getCode,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16.0,

@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:metadent/src/ui/CustomWidgets/signinSignupHeader.dart';
 import 'package:metadent/src/ui/homePage.dart';
 import 'package:metadent/src/ui/register.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:metadent/routes.dart' as routes;
 
 class Login extends StatefulWidget {
@@ -36,6 +37,7 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
+    var localizedStrings = AppLocalizations.of(context);
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(0),
@@ -51,7 +53,7 @@ class _LoginState extends State<Login> {
                   Padding(
                     padding: const EdgeInsets.all(8.0).r,
                     child: Text(
-                      'Sign in',
+                      AppLocalizations.of(context)!.signIn,
                       style: Theme.of(context).textTheme.labelLarge,
                     ),
                   ),
@@ -69,13 +71,13 @@ class _LoginState extends State<Login> {
                     ),
                     decoration: InputDecoration(
                       label: Text(
-                        'Email',
+                          AppLocalizations.of(context)!.email,
                         style: TextStyle(
                           color: Theme.of(context).accentColor,
                           fontSize: 16.0.sp,
                         ),
                       ),
-                      hintText: 'someone@example.com',
+                      hintText: localizedStrings!.emailHint,
                       hintStyle:  TextStyle(
                         fontSize: 16.sp,
                       ),
@@ -102,13 +104,13 @@ class _LoginState extends State<Login> {
                     ),
                     decoration: InputDecoration(
                       label: Text(
-                        'Password',
+                        AppLocalizations.of(context)!.password,
                         style: TextStyle(
                           color: Theme.of(context).accentColor,
                           fontSize: 16.sp,
                         ),
                       ),
-                      hintText: 'Your password...',
+                      hintText: localizedStrings.passwordHint,
                       hintStyle:  TextStyle(
                         fontSize: 18.0.sp,
                       ),
@@ -137,7 +139,7 @@ class _LoginState extends State<Login> {
                     padding: const EdgeInsets.symmetric(horizontal: 8.0).r,
                     child: InkWell(
                       child: Text(
-                        'Forgot Password?',
+                        AppLocalizations.of(context)!.forgotPassword,
                         style: TextStyle(
                           color: Theme.of(context).primaryColor,
                           fontFamily: 'Source Sans Pro',
@@ -156,7 +158,7 @@ class _LoginState extends State<Login> {
                   ),
                   ElevatedButton(
                     child:  Text(
-                      'Sign in',
+                      AppLocalizations.of(context)!.signIn,
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 14.sp,
@@ -199,7 +201,7 @@ class _LoginState extends State<Login> {
                     child: Row(
                       children: [
                         Text(
-                          'Don\'t have an account?',
+                          AppLocalizations.of(context)!.noAccount,
                           style: TextStyle(
                             color: Theme.of(context).accentColor,
                             fontFamily: 'Source Sans Pro',
@@ -211,7 +213,7 @@ class _LoginState extends State<Login> {
                           padding: const EdgeInsets.symmetric(horizontal: 8.0),
                           child: InkWell(
                             child: Text(
-                              'Sign up',
+                              AppLocalizations.of(context)!.signUp,
                               style: TextStyle(
                                 color: Theme.of(context).primaryColor,
                                 fontFamily: 'Source Sans Pro',

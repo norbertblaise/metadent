@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PasswordReset extends StatefulWidget {
   const PasswordReset({Key? key}) : super(key: key);
@@ -26,6 +27,7 @@ class _PasswordResetState extends State<PasswordReset> {
 
   @override
   Widget build(BuildContext context) {
+    var localizedString = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -51,7 +53,7 @@ class _PasswordResetState extends State<PasswordReset> {
         Padding(
           padding: const EdgeInsets.only(left:8.0).r,
           child: Text(
-              'Enter your email',
+              localizedString!.enterEmailLabel,
               style: Theme.of(context).textTheme.labelMedium,
           ),
         ),
@@ -69,13 +71,13 @@ class _PasswordResetState extends State<PasswordReset> {
             ),
             decoration: InputDecoration(
               label: Text(
-                'Email',
+                localizedString.email,
                 style: TextStyle(
                   color: Theme.of(context).accentColor,
                   fontSize: 16.sp,
                 ),
               ),
-              hintText: 'someone@example.com',
+              hintText: localizedString.emailHint,
               hintStyle:  TextStyle(
                 fontSize: 18.sp,
               ),
@@ -89,7 +91,25 @@ class _PasswordResetState extends State<PasswordReset> {
         const SizedBox(
             height: 8,
         ),
-      ]),
+                  ElevatedButton(
+                    child:  Text(
+                      // AppLocalizations.of(context)!.signIn,
+                      localizedString.resetPassWordButtonText,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                        minimumSize:  Size.fromHeight(38.h),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.r))),
+                    onPressed: () {
+                      //todo send reset email
+                      },
+                  ),
+      ],),
           )),
     );
   }

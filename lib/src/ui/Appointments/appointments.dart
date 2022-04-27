@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:metadent/src/ui/CustomWidgets/AppointmentListItem.dart';
 import 'package:metadent/src/ui/CustomWidgets/gradientAppBar.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:metadent/routes.dart' as routes;
+
+import '../../../app.dart';
+var localizedString = AppLocalizations.of(NavigationService.navigatorKey.currentContext!);
 
 class Appointments extends StatefulWidget {
   const Appointments({Key? key}) : super(key: key);
@@ -13,7 +17,8 @@ class Appointments extends StatefulWidget {
 
 class _AppointmentsState extends State<Appointments>
     with SingleTickerProviderStateMixin {
-  final tabs = ['Upcoming', 'Previous'];
+
+  final tabs = [localizedString!.upcoming, localizedString!.previous];
   late TabController _tabController;
 
   @override
@@ -36,11 +41,12 @@ class _AppointmentsState extends State<Appointments>
 
   @override
   Widget build(BuildContext context) {
+    var localizedString = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: const GradientAppBar(),
-        title: const Text(
-          'Appointments',
+        title:  Text(
+          localizedString!.appointments,
           style: TextStyle(color: Colors.white),
         ),
         leading: IconButton(
@@ -79,7 +85,7 @@ class _AppointmentsState extends State<Appointments>
             ListView(
               children: [
                 AppointmentListItem(
-                    appointmentName: 'Ongoing Control',
+                    appointmentName: localizedString.ongoingControl,
                     doctorName: 'Brandon Wavamuno',
                     date: '11/04/2022',
                     time: '10:00'),
@@ -92,13 +98,14 @@ class _AppointmentsState extends State<Appointments>
   }
 
   Widget _floatingButtons() {
+    var localizedString = AppLocalizations.of(context);
     return _tabController.index == 0
         ? FloatingActionButton.extended(
             backgroundColor: Theme.of(context).primaryColor,
             foregroundColor: Colors.white,
             icon: const Icon(Icons.add),
             label:  Text(
-              'NEW',
+              localizedString!.newFABLabel,
               style: TextStyle(
                 fontSize: 12.sp,
                 fontWeight: FontWeight.bold,

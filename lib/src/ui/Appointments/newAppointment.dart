@@ -5,6 +5,10 @@ import 'package:metadent/routes.dart' as routes;
 import 'package:metadent/src/ui/CustomWidgets/gradientAppBar.dart';
 import 'package:intl/intl.dart';
 import 'package:metadent/src/ui/CustomWidgets/LongButton.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../../app.dart';
+var localizedString = AppLocalizations.of(NavigationService.navigatorKey.currentContext!);
 
 class NewAppointment extends StatefulWidget {
   const NewAppointment({Key? key}) : super(key: key);
@@ -14,14 +18,15 @@ class NewAppointment extends StatefulWidget {
 }
 
 class _NewAppointmentState extends State<NewAppointment> {
-  String dropdownValue = "Consulation";
+
+  String dropdownValue = localizedString!.consultation;
   late List<bool> isSelected;
   int defaultChoiceChip = 0;
   late List _timeChoices;
   DateTime selectedDate = DateTime.now();
 
   var treatmentItems = [
-    'Consulation',
+    localizedString!.consultation,
     'Item 2',
     'Item 3',
     'Item 4',
@@ -46,9 +51,9 @@ class _NewAppointmentState extends State<NewAppointment> {
       // Refer step 1
       firstDate: DateTime.now(),
       lastDate: DateTime(2050),
-      helpText: "Select Appointment Date",
-      cancelText: "Cancel",
-      confirmText: "Confirm",
+      helpText: localizedString!.selectAppointmentDate,
+      cancelText: localizedString!.cancel,
+      confirmText: localizedString!.confirm,
     );
     if (picked != null && picked != selectedDate) {
       setState(() {

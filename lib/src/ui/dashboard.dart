@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:metadent/src/ui/CustomWidgets/serviceCard.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:metadent/routes.dart' as routes;
 
 class Dashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var localizedString = AppLocalizations.of(context);
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.only(left: 20.0, right: 20.0),
@@ -32,7 +34,7 @@ class Dashboard extends StatelessWidget {
                     ),
                     Text(
                       //todo add username from server
-                      "Hi there, \nClarissa ",
+                      "${localizedString!.greeting}, \nClarissa ",
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                   ],
@@ -83,7 +85,7 @@ class Dashboard extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Upcoming Appointment",
+                                 localizedString.upcomingAppointment,
                                   style:
                                   Theme.of(context).textTheme.displaySmall,
                                 ),
@@ -104,7 +106,7 @@ class Dashboard extends StatelessWidget {
               ],
             ),
              SizedBox(height: ScreenUtil().setHeight(20)),
-            Text("Services", style: Theme.of(context).textTheme.labelMedium),
+            Text(localizedString.services, style: Theme.of(context).textTheme.labelMedium),
              SizedBox(
               height: ScreenUtil().setHeight(8),
             ),
@@ -115,14 +117,14 @@ class Dashboard extends StatelessWidget {
                     children: [
                       ServiceCard(
                           imagePath: 'assets/images/manage-appointments.png',
-                          cardLabel: "Manage\nAppointments",
+                          cardLabel: localizedString.manageAppointments,
                           destination: () {
                             Navigator.pushNamed(context, routes.appointments);
                           }),
                        SizedBox(width: ScreenUtil().setWidth(8)),
                       ServiceCard(
                           imagePath: 'assets/images/statements-invoices.png',
-                          cardLabel: "Statements &\nInvoices",
+                          cardLabel: localizedString.statementsAndInvoices,
                           destination: () {
                             //todo go to approriate page.
 
@@ -134,14 +136,14 @@ class Dashboard extends StatelessWidget {
                     children: [
                       ServiceCard(
                           imagePath: 'assets/images/view-records.png',
-                          cardLabel: "View Records",
+                          cardLabel: localizedString.viewRecords,
                           destination: () {
                             //todo go to appointments page.
                           }),
                        SizedBox(width: ScreenUtil().setWidth(8)),
                       ServiceCard(
                           imagePath: 'assets/images/treatment-plans.png',
-                          cardLabel: "Treatment Plans",
+                          cardLabel: localizedString.treatmentPlans,
                           destination: () {
                             //todo go to appointments page.
                           }),
