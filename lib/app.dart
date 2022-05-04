@@ -12,6 +12,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:metadent/routes.dart' as routes;
 
+var localizedString = AppLocalizations.of(NavigationService.navigatorKey.currentContext!);
+
 class App extends StatelessWidget {
   const App({
     Key? key,

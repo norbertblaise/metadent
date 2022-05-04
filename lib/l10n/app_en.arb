@@ -84,10 +84,28 @@
   "phone": "Phone",
   "address": "Address",
   "insurance": "Insurance",
+
   "policyDetails": "Policy Details",
-  "holderName": "Holder's Name",
+  "policyNumberHint": "ID029354856",
+  "policyNumberError": "Incorrect Policy Number",
   "policyNumber": "Policy Number",
+  "holderName": "Holder's Name",
+
   "provider": "Provider",
+  "providerError": "Field Required",
+  "providerHint": "Old Town Insurance",
+
   "coveragePlan": "Coverage Plan",
-  "expiry": "Expiry"
+  "coveragePlanError": "Field Required",
+
+  "expiry": "Expiry",
+  "expiryError": "Please enter correct date",
+  "expiryHint": "12/02/2024",
+
+  "editInsuranceInfo": "Edit Insurance Info",
+  "providerInfo": "Provider Info",
+
+  "save": "SAVE"
+
+
 }

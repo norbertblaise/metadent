@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:metadent/routes.dart' as routes;
-import 'CustomWidgets/CustomSliverAppbarDelegate.dart';
-import 'CustomWidgets/InsuranceDetailItem.dart';
-import 'CustomWidgets/ProfileFieldItem.dart';
-import 'CustomWidgets/ProfilePicture.dart';
-import 'CustomWidgets/gradientAppBar.dart';
+import '../CustomWidgets/CustomSliverAppbarDelegate.dart';
+import '../CustomWidgets/InsuranceDetailItem.dart';
+import '../CustomWidgets/ProfileFieldItem.dart';
+import '../CustomWidgets/ProfilePicture.dart';
+import '../CustomWidgets/gradientAppBar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Profile extends StatelessWidget {
@@ -98,7 +98,7 @@ class Profile extends StatelessWidget {
                             style: Theme.of(context).textTheme.labelSmall),
                         IconButton(
                           onPressed: () {
-                            //todo open edit page
+                            Navigator.pushNamed(context, routes.editInsuranceInfo);
                           },
                           icon: const Icon(Icons.edit),
                           color: Theme.of(context).primaryColor,
