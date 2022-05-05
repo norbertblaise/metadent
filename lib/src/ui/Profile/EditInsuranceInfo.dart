@@ -3,7 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:metadent/routes.dart' as routes;
 import 'package:metadent/app.dart';
-import 'package:metadent/src/ui/CustomWidgets/LongButton.dart';
+import 'package:metadent/src/ui/CustomWidgets/PrimaryLongButton.dart';
 
 import '../CustomWidgets/InsuranceDetailTextField.dart';
 import '../Methods/methods.dart';
@@ -71,7 +71,7 @@ class _EditInsuranceInfoState extends State<EditInsuranceInfo> {
                     .r,
                 child: Column(
                   children: [
-                    InsuranceDetailTextField(
+                    DetailTextField(
                         hintText: localizedString!.nameHint,
                         errorText: localizedString!.noNameError,
                         labelText: localizedString!.holderName,
@@ -79,7 +79,7 @@ class _EditInsuranceInfoState extends State<EditInsuranceInfo> {
                     SizedBox(
                       height: 16.h,
                     ),
-                    InsuranceDetailTextField(
+                    DetailTextField(
                         hintText: localizedString!.nameHint,
                         errorText: localizedString!.policyNumberError,
                         labelText: localizedString!.policyNumber,
@@ -106,7 +106,7 @@ class _EditInsuranceInfoState extends State<EditInsuranceInfo> {
                     .r,
                 child: Column(
                   children: [
-                    InsuranceDetailTextField(
+                    DetailTextField(
                         hintText: localizedString!.providerHint,
                         errorText: localizedString!.providerError,
                         labelText: localizedString!.provider,
@@ -114,7 +114,7 @@ class _EditInsuranceInfoState extends State<EditInsuranceInfo> {
                     SizedBox(
                       height: 16.h,
                     ),
-                    InsuranceDetailTextField(
+                    DetailTextField(
                         hintText: localizedString!.coveragePlan,
                         errorText: localizedString!.coveragePlanError,
                         labelText: localizedString!.coveragePlan,
@@ -122,7 +122,7 @@ class _EditInsuranceInfoState extends State<EditInsuranceInfo> {
                     SizedBox(
                       height: 16.h,
                     ),
-                    InsuranceDetailTextField(
+                    DetailTextField(
                         hintText: localizedString!.expiry,
                         errorText: localizedString!.policyNumberError,
                         labelText: localizedString!.expiry,
@@ -134,7 +134,7 @@ class _EditInsuranceInfoState extends State<EditInsuranceInfo> {
             SizedBox(
               height: 16.h,
             ),
-            LongButton(buttonAction: (){
+            PrimaryLongButton(buttonAction: (){
               //todo save changes insurance details
               Navigator.pop(context);
             }, buttonText: localizedString!.save.toUpperCase())

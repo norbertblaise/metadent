@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LongButton extends StatelessWidget {
-  const LongButton(
+class PrimaryLongButton extends StatelessWidget {
+  const PrimaryLongButton(
       {Key? key, required this.buttonAction, required this.buttonText})
       : super(key: key);
   final String buttonText;
@@ -12,16 +13,16 @@ class LongButton extends StatelessWidget {
     return ElevatedButton(
       child:  Text(
         buttonText,
-        style: TextStyle(
+        style:  TextStyle(
           color: Colors.white,
-          fontSize: 16.0,
+          fontSize: 16.0.sp,
           fontWeight: FontWeight.bold,
         ),
       ),
       style: ElevatedButton.styleFrom(
           minimumSize: const Size.fromHeight(42),
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(8).r)),
       onPressed: () {
         buttonAction;
       },

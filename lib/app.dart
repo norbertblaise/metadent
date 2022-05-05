@@ -210,6 +210,18 @@ class App extends StatelessWidget {
                       fontWeight: FontWeight.normal,
                       color: Color(0xFFFF782E)
                   ),
+                  headlineSmall: TextStyle(
+                    fontFamily: 'Source Sans Pro',
+                    color:Color(0xFF0A2139),
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  bodyMedium: TextStyle(
+                    fontFamily: 'Source Sans Pro',
+                    color:Theme.of(context).hintColor,
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.normal,
+                  ),
                 ),
                 dividerTheme: DividerThemeData(
                   thickness: 1,

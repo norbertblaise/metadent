@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../Methods/methods.dart';
 
-class InsuranceDetailTextField extends StatelessWidget {
-  const InsuranceDetailTextField({
+class DetailTextField extends StatelessWidget {
+  const DetailTextField({
     Key? key,
     required this.textEditingController,
     required this.hintText,

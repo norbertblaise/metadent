@@ -105,7 +105,16 @@
   "editInsuranceInfo": "Edit Insurance Info",
   "providerInfo": "Provider Info",
 
-  "save": "SAVE"
+  "save": "SAVE",
+  "editPaymentMethod": "Edit Payment Method",
+  "cardDetails": "Card Details",
+  "issuer": "Issuer",
+  "cardNumber": "Card Number",
+  "expiryDate": "Expiry Date",
+  "ccv" : "CCV/CVC",
+  "setAsDefault": "Set As Default",
+  "delete": "Delete",
 
-
+  "enterCardDetails": "Please Enter your card details",
+  "addPaymentMethod": "Add Payment Method"
 }

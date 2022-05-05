@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:metadent/routes.dart' as routes;
 import 'package:metadent/src/ui/CustomWidgets/gradientAppBar.dart';
 import 'package:intl/intl.dart';
-import 'package:metadent/src/ui/CustomWidgets/LongButton.dart';
+import 'package:metadent/src/ui/CustomWidgets/PrimaryLongButton.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../app.dart';
@@ -329,7 +329,7 @@ class _NewAppointmentState extends State<NewAppointment> {
           ),
             Align(
               alignment: Alignment.bottomCenter,
-              child: LongButton(
+              child: PrimaryLongButton(
                 buttonText: "Confirm",buttonAction: (){
                 //todo handle appointment creation
               },

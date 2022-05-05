@@ -14,8 +14,10 @@ import 'package:metadent/src/ui/Appointments/newAppointment.dart';
 import 'package:metadent/src/ui/Profile/Profile.dart';
 import 'package:metadent/src/ui/Profile/EditInsuranceInfo.dart';
 import 'package:metadent/src/ui/Profile/EditPersonalInfo.dart';
-
-
+import 'package:metadent/src/ui/paymentMethods/paymentMethods.dart';
+import 'package:metadent/src/ui/paymentMethods/paymentMethodDetails.dart';
+import 'package:metadent/src/ui/paymentMethods/addPaymentMethod.dart';
+import 'package:metadent/src/ui/paymentMethods/editPaymentMethod.dart';
 
 //route names
 const String loginPage = 'login';
@@ -30,7 +32,10 @@ const String dashboard = 'dashboard';
 const String profile = "profile";
 const String editInsuranceInfo = 'editInsuranceInfo';
 const String editPersonalInfo = "editPersonalInfo";
-
+const String paymentMethods = "paymentMethods";
+const String paymentMethodDetails = "paymentMethodDetails";
+const String addPaymentMethod = "addPaymentMethod";
+const String editPaymentMethod = "editPaymentMethod";
 
 Route<dynamic> controller(RouteSettings settings) {
   switch (settings.name) {
@@ -42,8 +47,8 @@ Route<dynamic> controller(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => HomePage());
     case passwordResetPage:
       return MaterialPageRoute(builder: (context) => PasswordReset());
-      case phoneVerification:
-        return MaterialPageRoute(builder: (context) => PhoneVerification());
+    case phoneVerification:
+      return MaterialPageRoute(builder: (context) => PhoneVerification());
     case enterOTP:
       return MaterialPageRoute(builder: (context) => EnterOtp());
     case appointments:
@@ -58,6 +63,14 @@ Route<dynamic> controller(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => EditInsuranceInfo());
     case editPersonalInfo:
       return MaterialPageRoute(builder: (context) => EditPersonalInfo());
+    case paymentMethods:
+      return MaterialPageRoute(builder: (context) => PaymentMethods());
+    case paymentMethodDetails:
+      return MaterialPageRoute(builder: (context) => PaymentMethodDetails());
+    case addPaymentMethod:
+      return MaterialPageRoute(builder: (context) => AddPaymentMethod());
+    case editPaymentMethod:
+      return MaterialPageRoute(builder: (context) => EditPaymentMethod());
     default:
       throw ('This route name does not exist');
   }

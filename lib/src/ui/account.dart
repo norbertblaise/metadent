@@ -36,7 +36,9 @@ class Account extends StatelessWidget {
             SettingsListItem(
               label: localizedString.paymentMethods,
               icon: Icons.payment_rounded,
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, routes.paymentMethods);
+              },
             ),
             SettingsListItem(
               label: localizedString.settings,
