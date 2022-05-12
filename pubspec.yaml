@@ -40,6 +40,12 @@ dependencies:
   pinput: ^2.1.4
   intl: ^0.17.0
   flutter_screenutil: ^5.4.0
+  http: ^0.13.4
+#  flutter_session: ^0.1.1
+  flutter_bloc: ^8.0.1
+  equatable: ^2.0.3
+  shared_preferences: ^2.0.15
+  flutter_secure_storage: ^5.0.2
 
 dev_dependencies:
   flutter_test:

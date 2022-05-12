@@ -59,6 +59,7 @@ class Account extends StatelessWidget {
               label: localizedString.logout,
               icon: Icons.logout,
               onTap: () {
+                // Navigator.popAndPushNamed(context, routes.loginPage);
                 Navigator.pushNamedAndRemoveUntil(context, routes.loginPage, (route)=> false);
               },
             ),

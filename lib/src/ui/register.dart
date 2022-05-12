@@ -36,6 +36,10 @@ class _RegisterState extends State<Register> {
       return 'null';
     }
   }
+  @override
+  void initState() {
+    isPasswordVisible = false;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +66,7 @@ class _RegisterState extends State<Register> {
                       ),
                     ),
                     TextFormField(
+                      textInputAction: TextInputAction.next,
                       style: TextStyle(
                         fontSize: 16.sp,
                         color: Theme.of(context).accentColor,
@@ -98,6 +103,7 @@ class _RegisterState extends State<Register> {
                       height: 16.h,
                     ),
                     TextFormField(
+                      textInputAction: TextInputAction.next,
                       controller: emailController,
                       keyboardType: TextInputType.emailAddress,
                       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -129,9 +135,10 @@ class _RegisterState extends State<Register> {
                       height: 16.h,
                     ),
                     TextFormField(
+                      textInputAction: TextInputAction.go,
                       controller: passwordController,
                       keyboardType: TextInputType.text,
-                      obscureText: isPasswordVisible,
+                      obscureText: !isPasswordVisible,
                       // onChanged: (value) => setState(() {
                       //   password = value;
                       // }),
@@ -153,8 +160,8 @@ class _RegisterState extends State<Register> {
                         ),
                         suffixIcon: IconButton(
                           icon: isPasswordVisible
-                              ? const Icon(Icons.visibility_off)
-                              : const Icon(Icons.visibility),
+                              ? const Icon(Icons.visibility)
+                              : const Icon(Icons.visibility_off),
                           onPressed: () {
                             setState(() {
                               isPasswordVisible != isPasswordVisible;

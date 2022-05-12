@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:metadent/blocs/auth_bloc.dart';
+import 'package:metadent/providers/resources/authRepository.dart';
 import 'src/ui/homePage.dart';
 import 'package:metadent/src/ui/account.dart';
 import 'package:metadent/src/ui/communications.dart';
@@ -12,7 +15,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:metadent/routes.dart' as routes;
 
-var localizedString = AppLocalizations.of(NavigationService.navigatorKey.currentContext!);
+var localizedString =
+    AppLocalizations.of(NavigationService.navigatorKey.currentContext!);
 
 class App extends StatelessWidget {
   const App({
@@ -42,7 +46,6 @@ class App extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
     int pageIndex = 0;
     // SystemChrome.setSystemUIOverlayStyle(
     //     SystemUiOverlayStyle(
@@ -138,7 +141,7 @@ class App extends StatelessWidget {
         designSize: const Size(360, 690),
         minTextAdapt: true,
         splitScreenMode: true,
-        builder: (_){
+        builder: (_) {
           return MaterialApp(
             title: 'MetaDent',
             navigatorKey: NavigationService.navigatorKey,
@@ -159,17 +162,13 @@ class App extends StatelessWidget {
                   brightness: Brightness.light,
                   error: Colors.red,
                   onError: Colors.white,
-
                 ),
-                appBarTheme: AppBarTheme(
-                  brightness: Brightness.dark
-                ),
+                appBarTheme: AppBarTheme(brightness: Brightness.dark),
                 primaryColor: const Color(0xFFFF782E),
                 accentColor: Color(0xFF0A2139),
                 backgroundColor: const Color(0xFFFFF4EF),
-
                 fontFamily: 'Source Sans Pro',
-                textTheme:  TextTheme(
+                textTheme: TextTheme(
                   titleSmall: TextStyle(
                     fontFamily: 'Source Sans Pro',
                     color: const Color(0xFF0A2139),
@@ -184,8 +183,7 @@ class App extends StatelessWidget {
                       fontFamily: 'Source Sans Pro',
                       color: Colors.white,
                       fontSize: ScreenUtil().setSp(18),
-                      fontWeight: FontWeight.w700
-                  ),
+                      fontWeight: FontWeight.w700),
                   displayLarge: TextStyle(
                     fontFamily: 'Montserrat',
                     color: Colors.white,
@@ -200,7 +198,7 @@ class App extends StatelessWidget {
                   ),
                   labelSmall: TextStyle(
                     fontFamily: 'Source Sans Pro',
-                    color:Color(0xFF0A2139),
+                    color: Color(0xFF0A2139),
                     fontSize: 12.sp,
                     fontWeight: FontWeight.bold,
                   ),
@@ -208,17 +206,16 @@ class App extends StatelessWidget {
                       fontFamily: 'Source Sans Pro',
                       fontSize: 24.sp,
                       fontWeight: FontWeight.normal,
-                      color: Color(0xFFFF782E)
-                  ),
+                      color: Color(0xFFFF782E)),
                   headlineSmall: TextStyle(
                     fontFamily: 'Source Sans Pro',
-                    color:Color(0xFF0A2139),
+                    color: Color(0xFF0A2139),
                     fontSize: 16.sp,
                     fontWeight: FontWeight.bold,
                   ),
                   bodyMedium: TextStyle(
                     fontFamily: 'Source Sans Pro',
-                    color:Theme.of(context).hintColor,
+                    color: Theme.of(context).hintColor,
                     fontSize: 14.sp,
                     fontWeight: FontWeight.normal,
                   ),
@@ -228,17 +225,17 @@ class App extends StatelessWidget {
                   color: Theme.of(context).hintColor,
                   indent: 80.w,
                   endIndent: 16.w,
-                )
-            ),
+                )),
             onGenerateRoute: routes.controller,
-            initialRoute: routes.loginPage,
+            home: RepositoryProvider(
+              create: (context) => AuthRepository(),
+              child: const Login(),
+            ),
           );
         });
-
   }
 }
 
 class NavigationService {
-  static GlobalKey<NavigatorState> navigatorKey =
-  GlobalKey<NavigatorState>();
+  static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 }
