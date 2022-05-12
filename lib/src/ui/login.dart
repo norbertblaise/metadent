@@ -270,35 +270,6 @@ class _LoginState extends State<Login> {
 
                                 isLoading = state is FormSubmitting ?true : false;
                               }
-                              // if (isLoading) return;
-
-                              // setState(() => isLoading = true);
-                              // final response = await http
-                              //     .post(Uri.parse('${baseUrl}auth/login'), body: {
-                              //   'identifier': emailController.text,
-                              //   'password': passwordController.text,
-                              // });
-                              //
-                              // if (response.statusCode == 200) {
-                              //   setState(() => isLoading = false);
-                              //   Navigator.pushAndRemoveUntil(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //       builder: (context) => HomePage(),
-                              //     ),
-                              //     (route) => false,
-                              //   ).then((_) {
-                              //     setState(() {});
-                              //   });
-                              //   if (kDebugMode) {
-                              //     // print(await response.stream.bytesToString());
-                              //   }
-                              // } else {
-                              //   setState(() => isLoading = true);
-                              //   if (kDebugMode) {
-                              //     print(response.reasonPhrase);
-                              //   }
-                              // }
                             },
                           );
                         }),
