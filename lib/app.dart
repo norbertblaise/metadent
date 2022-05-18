@@ -1,6 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:metadent/blocs/auth_bloc.dart';
 import 'package:metadent/providers/resources/authRepository.dart';
 import 'src/ui/homePage.dart';
@@ -18,10 +20,19 @@ import 'package:metadent/routes.dart' as routes;
 var localizedString =
     AppLocalizations.of(NavigationService.navigatorKey.currentContext!);
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   const App({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+
+  AuthRepository authRepository = AuthRepository();
+  late AuthBloc authBloc;
 
   MaterialColor createMaterialColor(Color color) {
     List strengths = <double>[.05];
@@ -43,6 +54,13 @@ class App extends StatelessWidget {
     return MaterialColor(color.value, swatch);
   }
 
+
+  @override
+  void initState() {
+    authBloc = AuthBloc(authRepository: authRepository);
+    authBloc.add(AppStarted());
+    super.initState();
+  }
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -53,6 +71,11 @@ class App extends StatelessWidget {
     //         statusBarColor: Color(0xFFFF782E)
     //     )
     // );
+    Future<bool> isLoggedIn() async {
+      return await const FlutterSecureStorage().containsKey(key: 'token');
+    }
+
+    // bool userLoggedIn = isLoggedIn() ;
     final pages = [
       const Communications(),
       const Invoices(),
@@ -227,9 +250,27 @@ class App extends StatelessWidget {
                   endIndent: 16.w,
                 )),
             onGenerateRoute: routes.controller,
+            // home: RepositoryProvider(
+            //   create: (context) => AuthRepository(),
+            //   child: const Login(),
+            // ),
             home: RepositoryProvider(
               create: (context) => AuthRepository(),
-              child: const Login(),
+              child: BlocBuilder<AuthBloc, AuthState>(
+                builder: (BuildContext context, AuthState state) {
+                  if (kDebugMode) {
+                    print("state is $state");
+                  }
+                  if(state is AuthUninitialized){
+                    context.read<AuthBloc>().add(AppStarted());
+                  }
+                  if (state is AuthAuthenticated) {
+                    return HomePage();
+                  } else {
+                    return const Login();
+                  }
+                },
+              ),
             ),
           );
         });

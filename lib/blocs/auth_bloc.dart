@@ -82,6 +82,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     //check for token
     var tokenExists =
         await const FlutterSecureStorage().containsKey(key: 'token');
+    if (kDebugMode) {
+      print("token exists: $tokenExists");
+    }
 
     if (tokenExists) {
       emit(AuthAuthenticated());
