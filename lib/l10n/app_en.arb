@@ -7,6 +7,8 @@
   "@Sign in": {
     "description": "Sign in"
   },
+  "firstName": "First Name",
+  "lastName": "Last Name",
   "name": "Name",
   "email": "Email",
   "@Email": {
@@ -29,6 +31,8 @@
   "passwordHint": "Your password...",
   "noNameError": "Please provide a name",
   "nameHint": "Jon Doe",
+  "fistNameHint": "Jon",
+  "lastNameHint": "Doe",
   "enterEmailLabel": "Enter your email",
   "resetPassWordButtonText" : "Reset Password",
   "createAccount" : "Create Account",
@@ -81,6 +85,7 @@
   "logout": "Logout",
 
   "profile": "profile",
+  "editProfileInfo": "Edit Profile Info",
   "phone": "Phone",
   "address": "Address",
   "insurance": "Insurance",
