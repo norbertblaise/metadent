@@ -5,10 +5,12 @@ class ProfileFieldCard extends StatelessWidget {
   IconData? icon;
   String label;
   String value;
-  Function()? editValue;
+  // Function()? editValue;
 
   ProfileFieldCard({
-    required this.icon, required this.label, required this.value, required this.editValue,
+    required this.icon, required this.label,
+    required this.value,
+    // required this.editValue,
     Key? key,
   }) : super(key: key);
 
@@ -53,13 +55,14 @@ class ProfileFieldCard extends StatelessWidget {
                   ],),
               ],),
             ),
-            IconButton(
-              onPressed: editValue, icon: const Icon(Icons.edit),
-              color: Theme.of(context).primaryColor,
-            )
+            // IconButton(
+            //   onPressed: editValue, icon: const Icon(Icons.edit),
+            //   color: Theme.of(context).primaryColor,
+            // )
           ],
         ),
       ),
     );
   }
 }
+

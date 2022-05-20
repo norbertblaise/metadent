@@ -46,12 +46,16 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           email: event.email, password: event.password);
       String authToken = apiResponse.payload.token;
       User user = apiResponse.payload.user;
-      String userJson = jsonEncode(user.toJson());
+      var userJson = json.encode(user.toJson());
+      if (kDebugMode) {
+        print("userjson is $userJson");
+      }
       const storage = FlutterSecureStorage();
-      SharedPreferences prefs = await SharedPreferences.getInstance();
+      // SharedPreferences prefs = await SharedPreferences.getInstance();
 
       await storage.write(key: 'token', value: authToken);
-      await prefs.setString("user", userJson);
+      await storage.write(key: 'userData', value: userJson);
+      // await prefs.setString("user", userJson);
       if (kDebugMode) {
         print("auth token is $authToken");
       }
@@ -69,7 +73,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     emit(AuthAuthenticated());
   }
 
-  void _onLoggedOut(LoggedOut event, Emitter<AuthState> emit) async{
+  void _onLoggedOut(LoggedOut event, Emitter<AuthState> emit) async {
     emit(AuthLoading());
     //todo delete token
     const storage = FlutterSecureStorage();

@@ -62,18 +62,22 @@ class _AddPaymentMethodState extends State<AddPaymentMethod> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0).r,
                   child: DetailTextField(
-                      hintText: localizedString!.nameHint,
-                      errorText: localizedString!.noNameError,
-                      labelText: localizedString!.holderName,
-                      textEditingController: nameController),
+                    hintText: localizedString!.nameHint,
+                    errorText: localizedString!.noNameError,
+                    labelText: localizedString!.holderName,
+                    textEditingController: nameController,
+                    onChanged: (value) {},
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0).r,
                   child: DetailTextField(
-                      hintText: "2234 4324 9845 0834",
-                      errorText: localizedString!.policyNumberError,
-                      labelText: localizedString!.cardNumber,
-                      textEditingController: cardNumberController),
+                    hintText: "2234 4324 9845 0834",
+                    errorText: localizedString!.policyNumberError,
+                    labelText: localizedString!.cardNumber,
+                    textEditingController: cardNumberController,
+                    onChanged: (value) {},
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0).r,
@@ -83,18 +87,22 @@ class _AddPaymentMethodState extends State<AddPaymentMethod> {
                       SizedBox(
                         width: 157.w,
                         child: DetailTextField(
-                            textEditingController: expiryDateController,
-                            hintText: "04/24",
-                            labelText: localizedString!.expiryDate,
-                            errorText: localizedString!.expiryError),
+                          textEditingController: expiryDateController,
+                          hintText: "04/24",
+                          labelText: localizedString!.expiryDate,
+                          errorText: localizedString!.expiryError,
+                          onChanged: (value) {},
+                        ),
                       ),
                       SizedBox(
                         width: 157.w,
                         child: DetailTextField(
-                            textEditingController: ccvController,
-                            hintText: localizedString!.ccv,
-                            labelText: localizedString!.ccv,
-                            errorText: localizedString!.noNameError),
+                          textEditingController: ccvController,
+                          hintText: localizedString!.ccv,
+                          labelText: localizedString!.ccv,
+                          errorText: localizedString!.noNameError,
+                          onChanged: (value) {},
+                        ),
                       )
                     ],
                   ),

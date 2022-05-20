@@ -12,7 +12,7 @@ import 'package:metadent/src/ui/enterOTP.dart';
 import 'package:metadent/src/ui/Appointments/appointments.dart';
 import 'package:metadent/src/ui/Appointments/newAppointment.dart';
 import 'package:metadent/src/ui/Profile/Profile.dart';
-import 'package:metadent/src/ui/Profile/EditInsuranceInfo.dart';
+import 'package:metadent/src/ui/Profile/EditProfileInfo.dart';
 import 'package:metadent/src/ui/Profile/EditPersonalInfo.dart';
 import 'package:metadent/src/ui/paymentMethods/paymentMethods.dart';
 import 'package:metadent/src/ui/paymentMethods/paymentMethodDetails.dart';
@@ -30,7 +30,7 @@ const String appointments = 'appointments';
 const String newAppointment = 'newAppointment';
 const String dashboard = 'dashboard';
 const String profile = "profile";
-const String editInsuranceInfo = 'editInsuranceInfo';
+const String editProfileInfo = 'editInsuranceInfo';
 const String editPersonalInfo = "editPersonalInfo";
 const String paymentMethods = "paymentMethods";
 const String paymentMethodDetails = "paymentMethodDetails";
@@ -59,8 +59,8 @@ Route<dynamic> controller(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => NewAppointment());
     case profile:
       return MaterialPageRoute(builder: (context) => Profile());
-    case editInsuranceInfo:
-      return MaterialPageRoute(builder: (context) => EditInsuranceInfo());
+    case editProfileInfo:
+      return MaterialPageRoute(builder: (context) => EditProfileInfo());
     case editPersonalInfo:
       return MaterialPageRoute(builder: (context) => EditPersonalInfo());
     case paymentMethods:

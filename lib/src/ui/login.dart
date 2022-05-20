@@ -62,7 +62,7 @@ class _LoginState extends State<Login> {
     //     _saveAndRedirectToHome();
     //   }
     // }
-    void _showSnackbar(BuildContext context, String message) {
+    void _showSnackBar(BuildContext context, String message) {
       final snackBar = SnackBar(content: Text(message));
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
@@ -82,7 +82,7 @@ class _LoginState extends State<Login> {
                     if (formStatus is SubmissionSuccess) {
                       Navigator.pushNamed(context, routes.homePage);
                     } else if (formStatus is SubmissionFailed) {
-                      _showSnackbar(context, "Something went Wrong");
+                      _showSnackBar(context, "Something went Wrong");
                     }
                     if (state is AuthAuthenticated) {
                       Navigator.pushNamed(context, routes.homePage);

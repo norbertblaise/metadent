@@ -5,26 +5,28 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:metadent/providers/resources/authRepository.dart';
 import 'app.dart';
 import 'blocs/auth_bloc.dart';
+import 'blocs/profile/profile_bloc.dart';
 
 void main() async {
   await ScreenUtil.ensureScreenSize();
   WidgetsFlutterBinding.ensureInitialized();
 
-    var isLoggedIn =  await const FlutterSecureStorage().containsKey(key: 'token');
+  var isLoggedIn = await const FlutterSecureStorage().containsKey(key: 'token');
 
   runApp(
-      RepositoryProvider(
-        create: (context) => AuthRepository(),
-        child: MultiBlocProvider(providers: [
-          BlocProvider(
-            create: (context) => AuthBloc(
-                authRepository: context.read<AuthRepository>()),
-          ),
-
-
-        ], child: const App()),
-      ),
-      // const App()
+    RepositoryProvider(
+      create: (context) => AuthRepository(),
+      child: MultiBlocProvider(providers: [
+        BlocProvider(
+          create: (context) =>
+              AuthBloc(authRepository: context.read<AuthRepository>()),
+        ),
+        BlocProvider(
+          create: (context) =>
+              ProfileBloc(authRepository: context.read<AuthRepository>()),
+        ),
+      ], child: const App()),
+    ),
+    // const App()
   );
 }
-

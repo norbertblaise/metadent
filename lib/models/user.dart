@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:core';
 
 class User {
@@ -45,7 +46,7 @@ class User {
   var mainDoctorId;
   var secondaryDoctorId;
 
-  User({this.token, this.id, this.firstName, this.lastName, this.email});
+  User({this.token, this.id, this.firstName, this.lastName, this.email, this.homeAddress, this.patientPhone, this.patientInsurer, this.insurancePolicyNumber});
 
   User.all({
     required this.id,
@@ -107,6 +108,10 @@ class User {
      id: parsedJson['id'],
      firstName: parsedJson['first_name'],
      lastName: parsedJson['last_name'],
+     homeAddress: parsedJson['home_address'],
+     patientPhone: parsedJson['patient_phone'],
+     patientInsurer: parsedJson['patient_insurer'],
+     insurancePolicyNumber: parsedJson['insurance_policy_number'],
      email:  parsedJson['email']
    );
  }
@@ -117,7 +122,13 @@ class User {
     data['userId'] = this.id;
     data['first_name'] = this.firstName;
     data['last_name'] = this.lastName;
+    data['home_address'] = this.homeAddress;
+    data['patient_phone'] = this.patientPhone;
     data['email'] = this.email;
+    data['patient_insurer'] = this.patientInsurer;
+    data['insurance_policy_number'] = this.insurancePolicyNumber;
     return data;
   }
+
+
 }

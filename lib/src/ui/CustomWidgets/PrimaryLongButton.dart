@@ -6,7 +6,7 @@ class PrimaryLongButton extends StatelessWidget {
       {Key? key, required this.buttonAction, required this.buttonText})
       : super(key: key);
   final String buttonText;
-  final Function? buttonAction;
+  final void Function()? buttonAction;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +23,9 @@ class PrimaryLongButton extends StatelessWidget {
           minimumSize: const Size.fromHeight(42),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(8).r)),
-      onPressed: () {
-        buttonAction;
-      },
+      onPressed:
+        buttonAction
+
     );
   }
 }

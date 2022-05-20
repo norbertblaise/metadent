@@ -68,7 +68,11 @@ class _EditPaymentMethodState extends State<EditPaymentMethod> {
                       hintText: localizedString!.nameHint,
                       errorText: localizedString!.noNameError,
                       labelText: localizedString!.holderName,
-                      textEditingController: nameController),
+                      textEditingController: nameController,
+                  onChanged: (value){
+
+                  },
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0).r,
@@ -76,7 +80,10 @@ class _EditPaymentMethodState extends State<EditPaymentMethod> {
                       hintText: "2234 4324 9845 0834",
                       errorText: localizedString!.policyNumberError,
                       labelText: localizedString!.cardNumber,
-                      textEditingController: cardNumberController),
+                      textEditingController: cardNumberController,
+                    onChanged: (value){
+
+                    },),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0).r,
@@ -89,7 +96,10 @@ class _EditPaymentMethodState extends State<EditPaymentMethod> {
                             textEditingController: expiryDateController,
                             hintText: "04/24",
                             labelText: localizedString!.expiryDate,
-                            errorText: localizedString!.expiryError),
+                            errorText: localizedString!.expiryError,
+                          onChanged: (value){
+
+                          },),
                       ),
 
                       SizedBox(
@@ -98,7 +108,10 @@ class _EditPaymentMethodState extends State<EditPaymentMethod> {
                             textEditingController: ccvController,
                             hintText: localizedString!.ccv,
                             labelText: localizedString!.ccv,
-                            errorText: localizedString!.noNameError),
+                            errorText: localizedString!.noNameError,
+                        onChanged: (value){
+
+                        },),
                       )
                     ],
                   ),

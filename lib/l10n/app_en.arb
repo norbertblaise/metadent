@@ -96,9 +96,10 @@
   "policyNumber": "Policy Number",
   "holderName": "Holder's Name",
 
+  "insurer": "Insurer",
   "provider": "Provider",
   "providerError": "Field Required",
-  "providerHint": "Old Town Insurance",
+  "providerHint": "Jane Doe",
 
   "coveragePlan": "Coverage Plan",
   "coveragePlanError": "Field Required",
