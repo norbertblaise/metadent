@@ -84,7 +84,7 @@
   "support": "Support",
   "logout": "Logout",
 
-  "profile": "profile",
+  "profile": "Profile",
   "editProfileInfo": "Edit Profile Info",
   "phone": "Phone",
   "address": "Address",
@@ -122,5 +122,16 @@
   "delete": "Delete",
 
   "enterCardDetails": "Please Enter your card details",
-  "addPaymentMethod": "Add Payment Method"
+  "addPaymentMethod": "Add Payment Method",
+
+  "yourAppointment": "Your Appointment",
+  "date":"Date",
+  "time": "Time",
+  "treatment": "Treatment",
+  "checkTheFrontDesk": "Please check in at the front desk\nwhen you arrive.",
+  "reschedule": "Reschedule",
+  "status": "Status",
+  "title": "Title",
+  "notes": "Notes"
+
 }

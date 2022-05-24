@@ -172,7 +172,7 @@ class _AppState extends State<App> {
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             theme: ThemeData(
-                primarySwatch: createMaterialColor(Color(0xFFFF782E)),
+                primarySwatch: createMaterialColor(const Color(0xFFFF782E)),
                 colorScheme: const ColorScheme(
                   primary: Color(0xFFFF782E),
                   onPrimary: Colors.white,
@@ -186,9 +186,9 @@ class _AppState extends State<App> {
                   error: Colors.red,
                   onError: Colors.white,
                 ),
-                appBarTheme: AppBarTheme(brightness: Brightness.dark),
+                appBarTheme: const AppBarTheme(brightness: Brightness.dark),
                 primaryColor: const Color(0xFFFF782E),
-                accentColor: Color(0xFF0A2139),
+                accentColor: const Color(0xFF0A2139),
                 backgroundColor: const Color(0xFFFFF4EF),
                 fontFamily: 'Source Sans Pro',
                 textTheme: TextTheme(
@@ -199,7 +199,7 @@ class _AppState extends State<App> {
                   ),
                   titleMedium: TextStyle(
                     fontFamily: 'Montserrat',
-                    color: Color(0xFF0A2139),
+                    color: const Color(0xFF0A2139),
                     fontSize: ScreenUtil().setSp(24),
                   ),
                   displaySmall: TextStyle(
@@ -215,13 +215,13 @@ class _AppState extends State<App> {
                   ),
                   labelMedium: TextStyle(
                     fontFamily: 'Source Sans Pro',
-                    color: Color(0xFF0A2139),
+                    color: const Color(0xFF0A2139),
                     fontSize: 20.sp,
                     fontWeight: FontWeight.bold,
                   ),
                   labelSmall: TextStyle(
                     fontFamily: 'Source Sans Pro',
-                    color: Color(0xFF0A2139),
+                    color: const Color(0xFF0A2139),
                     fontSize: 12.sp,
                     fontWeight: FontWeight.bold,
                   ),
@@ -229,12 +229,18 @@ class _AppState extends State<App> {
                       fontFamily: 'Source Sans Pro',
                       fontSize: 24.sp,
                       fontWeight: FontWeight.normal,
-                      color: Color(0xFFFF782E)),
+                      color: const Color(0xFFFF782E)),
                   headlineSmall: TextStyle(
                     fontFamily: 'Source Sans Pro',
-                    color: Color(0xFF0A2139),
+                    color: const Color(0xFF0A2139),
                     fontSize: 16.sp,
                     fontWeight: FontWeight.bold,
+                  ),
+                  headlineLarge: TextStyle(
+                    fontFamily: 'Source Sans Pro',
+                    color: const Color(0xFF0A2139),
+                    fontSize: 36.sp,
+                    fontWeight: FontWeight.normal,
                   ),
                   bodyMedium: TextStyle(
                     fontFamily: 'Source Sans Pro',
@@ -265,7 +271,7 @@ class _AppState extends State<App> {
                     context.read<AuthBloc>().add(AppStarted());
                   }
                   if (state is AuthAuthenticated) {
-                    return HomePage();
+                    return const HomePage();
                   } else {
                     return const Login();
                   }

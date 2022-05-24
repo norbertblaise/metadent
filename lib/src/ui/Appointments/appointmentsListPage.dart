@@ -6,18 +6,19 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:metadent/routes.dart' as routes;
 
 import '../../../app.dart';
-var localizedString = AppLocalizations.of(NavigationService.navigatorKey.currentContext!);
 
-class Appointments extends StatefulWidget {
-  const Appointments({Key? key}) : super(key: key);
+var localizedString =
+    AppLocalizations.of(NavigationService.navigatorKey.currentContext!);
+
+class AppointmentsPage extends StatefulWidget {
+  const AppointmentsPage({Key? key}) : super(key: key);
 
   @override
-  State<Appointments> createState() => _AppointmentsState();
+  State<AppointmentsPage> createState() => _AppointmentsPageState();
 }
 
-class _AppointmentsState extends State<Appointments>
+class _AppointmentsPageState extends State<AppointmentsPage>
     with SingleTickerProviderStateMixin {
-
   final tabs = [localizedString!.upcoming, localizedString!.previous];
   late TabController _tabController;
 
@@ -45,7 +46,7 @@ class _AppointmentsState extends State<Appointments>
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: const GradientAppBar(),
-        title:  Text(
+        title: Text(
           localizedString!.appointments,
           style: TextStyle(color: Colors.white),
         ),
@@ -56,7 +57,7 @@ class _AppointmentsState extends State<Appointments>
             Navigator.pop(context);
           },
         ),
-        actions:  [
+        actions: [
           Padding(
             padding: EdgeInsets.symmetric(
               horizontal: 16,
@@ -85,6 +86,9 @@ class _AppointmentsState extends State<Appointments>
             ListView(
               children: [
                 AppointmentListItem(
+                    onTap: () {
+                      Navigator.pushNamed(context, routes.appointmentDetails);
+                    },
                     appointmentName: localizedString.ongoingControl,
                     doctorName: 'Brandon Wavamuno',
                     date: '11/04/2022',
@@ -104,15 +108,15 @@ class _AppointmentsState extends State<Appointments>
             backgroundColor: Theme.of(context).primaryColor,
             foregroundColor: Colors.white,
             icon: const Icon(Icons.add),
-            label:  Text(
+            label: Text(
               localizedString!.newFABLabel,
               style: TextStyle(
                 fontSize: 12.sp,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12.r)),
             onPressed: () {
               Navigator.pushNamed(context, routes.newAppointment);
             },

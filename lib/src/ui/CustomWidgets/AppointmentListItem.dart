@@ -7,17 +7,21 @@ class AppointmentListItem extends StatelessWidget {
   final String date;
   final String time;
   final Image? doctorProfilePic;
+  final Function()? onTap;
 
   const AppointmentListItem(
       {Key? key,
         required this.doctorName,
         required this.date,
-        required this.time, required this.appointmentName, this.doctorProfilePic})
+        required this.time, required this.appointmentName,
+        this.doctorProfilePic,
+      this.onTap})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 20.0).r,
         child: Row(

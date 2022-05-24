@@ -9,7 +9,7 @@ import 'package:metadent/src/ui/notifications.dart';
 import 'package:metadent/src/ui/passwordReset.dart';
 import 'package:metadent/src/ui/phoneVerification.dart';
 import 'package:metadent/src/ui/enterOTP.dart';
-import 'package:metadent/src/ui/Appointments/appointments.dart';
+import 'package:metadent/src/ui/Appointments/appointmentsListPage.dart';
 import 'package:metadent/src/ui/Appointments/newAppointment.dart';
 import 'package:metadent/src/ui/Profile/Profile.dart';
 import 'package:metadent/src/ui/Profile/EditProfileInfo.dart';
@@ -18,6 +18,7 @@ import 'package:metadent/src/ui/paymentMethods/paymentMethods.dart';
 import 'package:metadent/src/ui/paymentMethods/paymentMethodDetails.dart';
 import 'package:metadent/src/ui/paymentMethods/addPaymentMethod.dart';
 import 'package:metadent/src/ui/paymentMethods/editPaymentMethod.dart';
+import 'package:metadent/src/ui/Appointments/appointmentDetailPage.dart';
 
 //route names
 const String loginPage = 'login';
@@ -28,6 +29,7 @@ const String phoneVerification = 'phoneVerification';
 const String enterOTP = 'enterOtp';
 const String appointments = 'appointments';
 const String newAppointment = 'newAppointment';
+const String appointmentDetails = 'appointmentDetails';
 const String dashboard = 'dashboard';
 const String profile = "profile";
 const String editProfileInfo = 'editInsuranceInfo';
@@ -52,7 +54,9 @@ Route<dynamic> controller(RouteSettings settings) {
     case enterOTP:
       return MaterialPageRoute(builder: (context) => EnterOtp());
     case appointments:
-      return MaterialPageRoute(builder: (context) => Appointments());
+      return MaterialPageRoute(builder: (context) => AppointmentsPage());
+    case appointmentDetails:
+      return MaterialPageRoute(builder: (context) => AppointmentDetail());
     case dashboard:
       return MaterialPageRoute(builder: (context) => Dashboard());
     case newAppointment:
