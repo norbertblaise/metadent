@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:metadent/providers/resources/authRepository.dart';
 import 'app.dart';
+import 'blocs/Appointments/appointments_bloc.dart';
 import 'blocs/auth_bloc.dart';
 import 'blocs/profile/profile_bloc.dart';
 
@@ -25,6 +26,9 @@ void main() async {
           create: (context) =>
               ProfileBloc(authRepository: context.read<AuthRepository>()),
         ),
+        BlocProvider(
+            create: (context) => AppointmentsBloc(
+                authRepository: context.read<AuthRepository>())),
       ], child: const App()),
     ),
     // const App()

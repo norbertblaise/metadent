@@ -1,11 +1,17 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:metadent/providers/resources/authRepository.dart';
 import 'package:metadent/src/ui/CustomWidgets/AppointmentListItem.dart';
 import 'package:metadent/src/ui/CustomWidgets/gradientAppBar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:metadent/routes.dart' as routes;
 
 import '../../../app.dart';
+import '../../../blocs/Appointments/appointments_bloc.dart';
+import '../../../models/appointment/appointmentsList.dart';
 
 var localizedString =
     AppLocalizations.of(NavigationService.navigatorKey.currentContext!);
@@ -21,7 +27,8 @@ class _AppointmentsPageState extends State<AppointmentsPage>
     with SingleTickerProviderStateMixin {
   final tabs = [localizedString!.upcoming, localizedString!.previous];
   late TabController _tabController;
-
+  AppointmentsList appointmentsList = AppointmentsList(appointments: []);
+  final FlutterSecureStorage storage = FlutterSecureStorage();
   @override
   void initState() {
     super.initState();
@@ -79,23 +86,45 @@ class _AppointmentsPageState extends State<AppointmentsPage>
           ],
         ),
       ),
-      body: TabBarView(
-        controller: _tabController,
-        children: [
-          for (final tab in tabs)
-            ListView(
-              children: [
-                AppointmentListItem(
-                    onTap: () {
-                      Navigator.pushNamed(context, routes.appointmentDetails);
-                    },
-                    appointmentName: localizedString.ongoingControl,
-                    doctorName: 'Brandon Wavamuno',
-                    date: '11/04/2022',
-                    time: '10:00'),
-              ],
-            ),
-        ],
+      body: BlocProvider(
+        create: (context) =>
+            AppointmentsBloc(authRepository: context.read<AuthRepository>()),
+        child: TabBarView(
+          controller: _tabController,
+          children: [
+            for (final tab in tabs)
+              BlocBuilder<AppointmentsBloc, AppointmentsState>(
+                builder: (context, state) {
+                  if (kDebugMode) {
+                    print("state in tab is $state");
+                  }
+                  if( state is AppointmentsInitial){
+                    context.read<AppointmentsBloc>().add(FetchAppointments());
+                  }
+                  if(state is AppointmentsFetched){
+                    appointmentsList = state.appointmentsList;
+                  }
+                  return
+                    // state is AppointmentsInitial?
+                    //   ? Center(child: CircularProgressIndicator())
+                    //   :
+                  ListView(
+                          children: [
+                            AppointmentListItem(
+                                onTap: () {
+                                  Navigator.pushNamed(
+                                      context, routes.appointmentDetails);
+                                },
+                                appointmentName: localizedString.ongoingControl,
+                                doctorName: 'Brandon Wavamuno',
+                                date: '11/04/2022',
+                                time: '10:00'),
+                          ],
+                        );
+                },
+              ),
+          ],
+        ),
       ),
       floatingActionButton: _floatingButtons(),
     );

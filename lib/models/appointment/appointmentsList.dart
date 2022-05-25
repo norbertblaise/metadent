@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:metadent/models/appointment/appointment.dart';
 
 import '../../src/ui/Appointments/appointmentsListPage.dart';
@@ -12,5 +14,8 @@ class AppointmentsList {
 
     appointments = parsedJson.map((i) => Appointment.fromJson(i)).toList();
     return AppointmentsList(appointments: appointments);
+  }
+  String toJson(){
+    return jsonEncode(appointments);
   }
 }

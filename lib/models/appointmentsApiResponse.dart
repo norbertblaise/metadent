@@ -2,16 +2,16 @@ import 'package:metadent/models/appointment/appointmentsList.dart';
 
 import 'appointment/appointment.dart';
 
-class AppointmentApiResponse {
+class AppointmentsApiResponse {
   String status;
   AppointmentsList payload;
 
-  AppointmentApiResponse({required this.status, required this.payload});
+  AppointmentsApiResponse({required this.status, required this.payload});
 
-  factory AppointmentApiResponse.fromJson(Map<String, dynamic> parsedJson) {
+  factory AppointmentsApiResponse.fromJson(Map<String, dynamic> parsedJson) {
     var appointmentsListFromJson = parsedJson['payload'];
 
-    return AppointmentApiResponse(
+    return AppointmentsApiResponse(
 
         status: parsedJson['status'], payload: AppointmentsList.fromJson(parsedJson['payload']));
   }

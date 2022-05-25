@@ -78,7 +78,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   void _onSaveButtonPressed(
       ProfileSaveButtonPressed event, Emitter<ProfileState> emit) async {
     emit(ProfileState(formStatus: FormSubmitting()));
-    //todo make network call
+    // make network call
     if (kDebugMode) {
       print("onSaveButtonPressed called");
       print('profilebloc event first name is ${event.firstName}');
@@ -105,7 +105,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         updatedUser.insurancePolicyNumber = event.policyNumber;
 
         if (kDebugMode) {
-          print("proflie bloc event address is ${event.homeAddress}");
+          print("profile bloc event address is ${event.homeAddress}");
           print("profile bloc address is ${updatedUser.homeAddress}");
         }
         var userJson = json.encode(updatedUser.toJson());

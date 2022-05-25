@@ -6,7 +6,7 @@ import 'package:http/http.dart' show Client;
 import 'dart:convert';
 import 'package:metadent/models/models.dart';
 
-import '../../models/appointmentApiResponse.dart';
+import '../../models/appointmentsApiResponse.dart';
 import '../../models/profileApiResponse.dart';
 
 class MetaDentApiProvider {
@@ -61,7 +61,7 @@ class MetaDentApiProvider {
     // return user;
   }
 
-  Future<AppointmentApiResponse> getUserAppointments({required String token}) async {
+  Future<AppointmentsApiResponse> getUserAppointments({required String token}) async {
     final response = await client.post(Uri.parse(
       '${baseUrl}appointments/all',
     ),
@@ -73,12 +73,12 @@ class MetaDentApiProvider {
         print(response.body.toString());
       }
 
-      AppointmentApiResponse apiResponse =
-          AppointmentApiResponse.fromJson(json.decode(response.body));
+      AppointmentsApiResponse apiResponse =
+          AppointmentsApiResponse.fromJson(json.decode(response.body));
       if (kDebugMode) {
         print(apiResponse.payload.appointments[1]);
       }
-      return AppointmentApiResponse.fromJson(json.decode(response.body));
+      return AppointmentsApiResponse.fromJson(json.decode(response.body));
     } else {
       throw Exception('Something went wrong');
     }
