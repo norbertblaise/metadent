@@ -3,7 +3,7 @@ import 'package:metadent/src/ui/CustomWidgets/navbarItem.dart';
 import 'package:metadent/src/ui/account.dart';
 import 'package:metadent/src/ui/communications.dart';
 import 'package:metadent/src/ui/homePage.dart';
-import 'package:metadent/src/ui/invoices.dart';
+import 'package:metadent/src/ui/invoicesPage.dart';
 import 'package:metadent/src/ui/notifications.dart';
 import 'package:metadent/src/ui/dashboard.dart';
 import '../ui/CustomWidgets/serviceCard.dart';
@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
   final pages = [
     Dashboard(),
     const Communications(),
-    const Invoices(),
+    const InvoicesPage(),
     const Notifications(),
     const Account()
   ];

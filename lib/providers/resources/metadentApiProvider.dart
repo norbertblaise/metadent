@@ -5,13 +5,24 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' show Client;
 import 'dart:convert';
 import 'package:metadent/models/models.dart';
-
+import 'package:dio/dio.dart';
+import '../../models/InvoiceModel/invoiceApiResponse.dart';
 import '../../models/appointmentsApiResponse.dart';
 import '../../models/profileApiResponse.dart';
 
 class MetaDentApiProvider {
   var baseUrl = "https://projectdental.nl/staging-backend/api/patients/";
+  static BaseOptions options = BaseOptions(
+      baseUrl: "https://projectdental.nl/staging-backend/api/patients/",
+      validateStatus: (code) {
+        if (code! >= 200) {
+          return true;
+        } else {
+          return false;
+        }
+      });
   Client client = Client();
+  static Dio dio = Dio(options);
 
   Future<ApiResponse> authenticateUser(
       {required String email, required String password}) async {
@@ -61,10 +72,12 @@ class MetaDentApiProvider {
     // return user;
   }
 
-  Future<AppointmentsApiResponse> getUserAppointments({required String token}) async {
-    final response = await client.post(Uri.parse(
-      '${baseUrl}appointments/all',
-    ),
+  Future<AppointmentsApiResponse> getUserAppointments(
+      {required String token}) async {
+    final response = await client.post(
+      Uri.parse(
+        '${baseUrl}appointments/all',
+      ),
       headers: {HttpHeaders.authorizationHeader: 'Bearer $token'},
     );
 
@@ -122,10 +135,18 @@ class MetaDentApiProvider {
           ProfileApiResponse.fromJson(json.decode(response.body));
       if (kDebugMode) {
         print(apiResponse.status);
+        print(apiResponse.payload);
       }
       return apiResponse;
     } else {
       throw Exception('Something went wrong');
     }
+  }
+
+  Future<InvoiceApiResponse> getUserInvoices({required String token}) async {
+    dio.options.headers[token];
+    final response = await dio.post("/invoices/all");
+
+    return InvoiceApiResponse.fromJson(json.decode(response.data));
   }
 }

@@ -8,7 +8,7 @@ import 'package:metadent/providers/resources/authRepository.dart';
 import 'src/ui/homePage.dart';
 import 'package:metadent/src/ui/account.dart';
 import 'package:metadent/src/ui/communications.dart';
-import 'package:metadent/src/ui/invoices.dart';
+import 'package:metadent/src/ui/invoicesPage.dart';
 import 'package:metadent/src/ui/notifications.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'src/ui/theme/pallete.dart';
@@ -78,7 +78,7 @@ class _AppState extends State<App> {
     // bool userLoggedIn = isLoggedIn() ;
     final pages = [
       const Communications(),
-      const Invoices(),
+      const InvoicesPage(),
       const Notifications(),
       const Account()
     ];

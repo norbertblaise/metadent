@@ -84,6 +84,8 @@
   "support": "Support",
   "logout": "Logout",
 
+  "invoices": "Invoices",
+
   "profile": "Profile",
   "editProfileInfo": "Edit Profile Info",
   "phone": "Phone",
@@ -133,5 +135,6 @@
   "status": "Status",
   "title": "Title",
   "notes": "Notes"
+
 
 }

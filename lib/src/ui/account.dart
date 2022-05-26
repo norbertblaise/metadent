@@ -19,6 +19,7 @@ class Account extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
+            automaticallyImplyLeading: false,
             elevation: 0,
             // flexibleSpace: const GradientAppBar(),
             title: Text(
