@@ -2,13 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class InvoiceCard extends StatelessWidget {
+  final String title;
+  final String status;
+  final String amountDue;
+  final String date;
+  final Function()? onTap;
+
   const InvoiceCard({
     Key? key,
+    required this.title,
+    required this.status,
+    required this.amountDue,
+    required this.date,
+    required this.onTap
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: onTap,
       child: Card(
         elevation: 8.r,
         shape: RoundedRectangleBorder(
@@ -24,21 +36,21 @@ class InvoiceCard extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Treatment One",
+                      Text(title,
                           style:
                           Theme.of(context).textTheme.headlineSmall),
                       SizedBox(
                         height: 8.h,
                       ),
                       Text(
-                        "INV-123309480605986",
+                        status,
                         style: Theme.of(context).textTheme.bodyText2,
                       ),
                       SizedBox(
                         height: 8.h,
                       ),
                       Text(
-                        "2022-04-25",
+                        date,
                         style: Theme.of(context).textTheme.bodyText2,
                       )
                     ],
@@ -48,16 +60,17 @@ class InvoiceCard extends StatelessWidget {
               Expanded(
                 child: Container(
                   child: Column(
+                    mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.end,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text("\$ 80",
+                      Text("\$ $amountDue",
                           style:
                           Theme.of(context).textTheme.headlineSmall),
                       SizedBox(
-                        height: 24.h,
+                        height: 45.h,
                       ),
-                      Icon(Icons.chevron_right,size: 25.0.sp,)
+                      // Icon(Icons.chevron_right,size: 25.0.sp,)
                     ],
                   ),
                 ),
@@ -66,6 +79,7 @@ class InvoiceCard extends StatelessWidget {
           ),
         ),
       ),
+
     );
   }
 }

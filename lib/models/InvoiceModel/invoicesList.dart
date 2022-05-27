@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:metadent/models/InvoiceModel/invoiceModel.dart';
 
 class InvoicesList {
@@ -11,5 +13,8 @@ class InvoicesList {
     invoices = parsedJson.map((i) => Invoice.fromJson(i)).toList();
 
     return InvoicesList(invoices: invoices);
+  }
+  String toJson(){
+    return jsonEncode(invoices);
   }
 }

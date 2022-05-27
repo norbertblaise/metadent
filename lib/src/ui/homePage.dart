@@ -3,7 +3,7 @@ import 'package:metadent/src/ui/CustomWidgets/navbarItem.dart';
 import 'package:metadent/src/ui/account.dart';
 import 'package:metadent/src/ui/communications.dart';
 import 'package:metadent/src/ui/homePage.dart';
-import 'package:metadent/src/ui/invoicesPage.dart';
+import 'package:metadent/src/ui/Invoices/invoicesPage.dart';
 import 'package:metadent/src/ui/notifications.dart';
 import 'package:metadent/src/ui/dashboard.dart';
 import '../ui/CustomWidgets/serviceCard.dart';

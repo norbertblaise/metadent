@@ -143,10 +143,23 @@ class MetaDentApiProvider {
     }
   }
 
+  // Future<InvoiceApiResponse> getUserInvoices({required String token}) async {
+  //   dio.options.headers[token];
+  //   final response = await dio.post("invoices/all");
+  //   if (kDebugMode) {
+  //     print(response.statusCode);
+  //     print(response.data);
+  //   }
+  //   return InvoiceApiResponse.fromJson(json.decode(response.data));
+  // }
   Future<InvoiceApiResponse> getUserInvoices({required String token}) async {
-    dio.options.headers[token];
-    final response = await dio.post("/invoices/all");
-
-    return InvoiceApiResponse.fromJson(json.decode(response.data));
+    // dio.options.headers[token];
+    final response = await client.post(Uri.parse('${baseUrl}invoices/all'),
+        headers: {HttpHeaders.authorizationHeader: 'Bearer $token'});
+    if (kDebugMode) {
+      print("Status is ${response.statusCode}");
+      print("Response body is ${response.body}");
+    }
+    return InvoiceApiResponse.fromJson(json.decode(response.body));
   }
 }

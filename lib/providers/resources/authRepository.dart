@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:metadent/models/InvoiceModel/invoiceApiResponse.dart';
 import 'package:metadent/models/apiResponse.dart';
 import 'package:metadent/models/appointmentsApiResponse.dart';
 import 'package:metadent/models/models.dart';
@@ -49,5 +50,9 @@ class AuthRepository {
       print("getUserAppointments called");
     }
     return await metadentApiProvider.getUserAppointments(token: token);
+  }
+
+  Future<InvoiceApiResponse> getUserInvoices({required String token}) async {
+    return await metadentApiProvider.getUserInvoices(token: token);
   }
 }

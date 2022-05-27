@@ -85,6 +85,7 @@
   "logout": "Logout",
 
   "invoices": "Invoices",
+  "invoice": "Invoice",
 
   "profile": "Profile",
   "editProfileInfo": "Edit Profile Info",

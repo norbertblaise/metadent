@@ -19,6 +19,7 @@ import 'package:metadent/src/ui/paymentMethods/paymentMethodDetails.dart';
 import 'package:metadent/src/ui/paymentMethods/addPaymentMethod.dart';
 import 'package:metadent/src/ui/paymentMethods/editPaymentMethod.dart';
 import 'package:metadent/src/ui/Appointments/appointmentDetailPage.dart';
+import 'package:metadent/src/ui/Invoices/invoiceDetailPage.dart';
 
 //route names
 const String loginPage = 'login';
@@ -38,6 +39,7 @@ const String paymentMethods = "paymentMethods";
 const String paymentMethodDetails = "paymentMethodDetails";
 const String addPaymentMethod = "addPaymentMethod";
 const String editPaymentMethod = "editPaymentMethod";
+const String invoiceDetailPage  = "invoiceDetailPage";
 
 Route<dynamic> controller(RouteSettings settings) {
   switch (settings.name) {
@@ -75,6 +77,8 @@ Route<dynamic> controller(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => AddPaymentMethod());
     case editPaymentMethod:
       return MaterialPageRoute(builder: (context) => EditPaymentMethod());
+    case invoiceDetailPage:
+      return MaterialPageRoute(builder: (context) => InvoiceDetailPage());
     default:
       throw ('This route name does not exist');
   }
